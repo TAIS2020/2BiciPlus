@@ -7,3 +7,5 @@ Es la implementación y construcción de una aplicación web que ofrece los sigu
 * Asesoría en línea
 * Personalización de bicicletas
 * Agendamiento de entregas a domicilio
+
+## Información de los integrantes: [Wiki_Integrantes](https://github.com/TAIS2020/2BiciPlus.wiki.git)
