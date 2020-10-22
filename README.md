@@ -9,6 +9,6 @@ Es la implementación y construcción de una aplicación web que ofrece los sigu
 * Agendamiento de entregas a domicilio
 
 ## Información de los integrantes: [Wiki_Integrantes](https://github.com/TAIS2020/2BiciPlus/wiki/Integrantes)
-## Diagramas: [Wiki_Diagramas](https://github.com/TAIS2020/2BiciPlus/wiki/Diagramas)
+
 
 
