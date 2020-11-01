@@ -27,7 +27,7 @@ public class InventoryController {
 
 	@RequestMapping(path = "/", method = RequestMethod.PUT)
 	public Inventory put(@RequestBody Inventory inventory) {
-		return repository.save(new Inventory());
+		return repository.save(inventory);
 	}
 
 	@RequestMapping(path = "/", method = RequestMethod.DELETE)
