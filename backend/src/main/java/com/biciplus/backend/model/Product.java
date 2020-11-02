@@ -52,4 +52,5 @@ public abstract class Product {
 	}
 
 	public abstract Long getPrice();
+	public abstract String getType();
 }

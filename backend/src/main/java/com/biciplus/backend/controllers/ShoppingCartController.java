@@ -8,33 +8,34 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.biciplus.backend.controllers.util.Response;
-import com.biciplus.backend.model.Category;
-import com.biciplus.backend.repositories.CategoryRepository;
+import com.biciplus.backend.model.ShoppingCart;
+import com.biciplus.backend.repositories.ShoppingCartRepository;
 
 @RestController
-@RequestMapping("category")
-public class CategoryController {
+@RequestMapping("shoppingCart")
+public class ShoppingCartController {
 
 	@Autowired
-	CategoryRepository repository;
+	ShoppingCartRepository repository;
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public Response post(@RequestBody Category entity) {
+	public Response post(@RequestBody ShoppingCart entity) {
 		entity.setId(null);
 		return new Response(Response.Status.OK, repository.save(entity));
 	}
 
+	@RequestMapping(method = RequestMethod.GET)
+	public Response list() {
+		return new Response(Response.Status.OK, repository.findAll());
+	}
+	
 	@RequestMapping(path = "/{id}", method = RequestMethod.GET)
 	public Response get(@PathVariable("id") Long id) {
-		if(id == null) {
-			return new Response(Response.Status.OK, repository.findAll());
-		} else {
-			return new Response(Response.Status.OK, repository.findById(id).get());			
-		}
+		return new Response(Response.Status.OK, repository.findById(id).get());			
 	}
 
 	@RequestMapping(method = RequestMethod.PUT)
-	public Response put(@RequestBody Category entity) {
+	public Response put(@RequestBody ShoppingCart entity) {
 		return new Response(Response.Status.OK, repository.save(entity));
 	}
 

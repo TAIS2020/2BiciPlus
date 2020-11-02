@@ -29,5 +29,10 @@ public class ComposedProduct extends Product {
 	public Long getPrice() {
 		if(this.subProducts == null || this.subProducts.isEmpty()) return new Long(0);		
 		return this.subProducts.stream().mapToLong(x -> x.getPrice()).sum();
+	}
+
+	@Override
+	public String getType() {
+		return "composed";
 	}	
 }

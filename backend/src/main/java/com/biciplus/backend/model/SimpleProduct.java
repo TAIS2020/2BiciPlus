@@ -42,4 +42,9 @@ public class SimpleProduct extends Product {
 	public Long getPrice() {
 		return price;
 	} 
+
+	@Override
+	public String getType() {
+		return "simple";
+	}	
 }

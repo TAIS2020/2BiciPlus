@@ -13,13 +13,13 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
 @Entity
-public class Inventory {
+public class ShoppingCart {
 	@Id   
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected Long id;
 	@ManyToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
-	@JoinTable(name = "inventory_products", 
-	    joinColumns = @JoinColumn(name="inventory_id"),
+	@JoinTable(name = "shoping_cart_products", 
+	    joinColumns = @JoinColumn(name="shopping_cart_id"),
 	    inverseJoinColumns = @JoinColumn(name="products_id"))
 	private Set<Product> products;
 	
@@ -38,4 +38,9 @@ public class Inventory {
 	public void setProducts(Set<Product> products) {
 		this.products = products;
 	}
+
+	public Long getTotalPrice() {
+		if(this.products == null || this.products.isEmpty()) return new Long(0);		
+		return this.products.stream().mapToLong(x -> x.getPrice()).sum();
+	}	
 }
