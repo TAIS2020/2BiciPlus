@@ -6,29 +6,29 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.biciplus.backend.model.Inventory;
-import com.biciplus.backend.repositories.InventoryRepository;
+import com.biciplus.backend.model.Category;
+import com.biciplus.backend.repositories.CategoryRepository;
 
 @RestController
-@RequestMapping("inventory")
-public class InventoryController {
+@RequestMapping("category")
+public class CategoryController {
 
 	@Autowired
-	InventoryRepository repository;
+	CategoryRepository repository;
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public Inventory post(@RequestBody Inventory entity) {
+	public Category post(@RequestBody Category entity) {
 		entity.setId(null);
 		return repository.save(entity);
 	}
 
 	@RequestMapping(method = RequestMethod.GET)
-	public Inventory get(Long id) {
+	public Category get(Long id) {
 		return repository.findById(id).get();
 	}
 
 	@RequestMapping(method = RequestMethod.PUT)
-	public Inventory put(@RequestBody Inventory entity) {
+	public Category put(@RequestBody Category entity) {
 		return repository.save(entity);
 	}
 

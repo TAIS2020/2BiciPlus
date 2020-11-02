@@ -6,29 +6,29 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.biciplus.backend.model.Inventory;
-import com.biciplus.backend.repositories.InventoryRepository;
+import com.biciplus.backend.model.Product;
+import com.biciplus.backend.repositories.ProductRepository;
 
 @RestController
-@RequestMapping("inventory")
-public class InventoryController {
-
+@RequestMapping("product")
+public class ProductController<T extends Product> {
+	
 	@Autowired
-	InventoryRepository repository;
+	ProductRepository<T> repository;
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public Inventory post(@RequestBody Inventory entity) {
+	public T post(@RequestBody T entity) {
 		entity.setId(null);
 		return repository.save(entity);
 	}
 
 	@RequestMapping(method = RequestMethod.GET)
-	public Inventory get(Long id) {
+	public T get(Long id) {
 		return repository.findById(id).get();
 	}
 
 	@RequestMapping(method = RequestMethod.PUT)
-	public Inventory put(@RequestBody Inventory entity) {
+	public T put(@RequestBody T entity) {
 		return repository.save(entity);
 	}
 
