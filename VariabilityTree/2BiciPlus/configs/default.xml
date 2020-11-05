@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration>
+	<feature automatic="selected" name="BiciPlus"/>
+	<feature automatic="selected" name="ECommerce"/>
+	<feature automatic="selected" name="SimpleECommerce"/>
+	<feature automatic="selected" name="ComposedECommerce"/>
+	<feature automatic="selected" name="Comparison"/>
+	<feature name="SimpleComparison"/>
+	<feature manual="selected" name="ComposedComparison"/>
+	<feature automatic="selected" name="CustomerSupport"/>
+	<feature manual="selected" name="SimpleContactPage"/>
+	<feature manual="selected" name="BotCustomerSupport"/>
+	<feature name="MessageBasedCustomerSupport"/>
+	<feature name="UserAccount"/>
+	<feature automatic="selected" name="Payment"/>
+</configuration>
