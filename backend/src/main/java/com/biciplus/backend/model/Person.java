@@ -1,5 +1,6 @@
 package com.biciplus.backend.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,6 +22,7 @@ public abstract class Person {
 	@Id   
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected Long id;
+	@Column(unique = true)
 	protected String login;
 	protected String password;
 	protected String address;
@@ -28,6 +30,7 @@ public abstract class Person {
 	protected String cellNumber;
 	protected String firstName;
 	protected String lastName;
+	protected String token;
 	
 	public Long getId() {
 		return id;
@@ -76,6 +79,12 @@ public abstract class Person {
 	}
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}	
+	public String getToken() {
+		return token;
 	}
-	public abstract String getType();
+	public void setToken(String token) {
+		this.token = token;
+	}
+	public abstract String getType();	
 }

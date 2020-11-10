@@ -7,13 +7,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.biciplus.backend.CustomExceptionHandler;
 import com.biciplus.backend.controllers.util.Response;
 import com.biciplus.backend.model.Product;
 import com.biciplus.backend.repositories.ProductRepository;
 
 @RestController
-@RequestMapping("product")
-public class ProductController<T extends Product> {
+@RequestMapping("api/product")
+public class ProductController<T extends Product> extends CustomExceptionHandler {
 	
 	@Autowired
 	ProductRepository<T> repository;

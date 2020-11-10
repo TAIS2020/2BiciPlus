@@ -1,19 +1,21 @@
 package com.biciplus.backend.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.biciplus.backend.CustomExceptionHandler;
 import com.biciplus.backend.controllers.util.Response;
 import com.biciplus.backend.model.Category;
 import com.biciplus.backend.repositories.CategoryRepository;
 
 @RestController
-@RequestMapping("category")
-public class CategoryController {
+@RequestMapping("api/category")
+public class CategoryController extends CustomExceptionHandler {
 
 	@Autowired
 	CategoryRepository repository;
@@ -43,4 +45,9 @@ public class CategoryController {
 		repository.deleteById(id);
 		return new Response(Response.Status.OK);
 	}
+
+    @ExceptionHandler(Exception.class)
+    public Response handleError(Exception exception) {
+        return new Response(Response.Status.ERROR, exception.getMessage());
+    }
 }

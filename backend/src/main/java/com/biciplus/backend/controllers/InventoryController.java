@@ -7,13 +7,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.biciplus.backend.CustomExceptionHandler;
 import com.biciplus.backend.controllers.util.Response;
 import com.biciplus.backend.model.Inventory;
 import com.biciplus.backend.repositories.InventoryRepository;
 
 @RestController
-@RequestMapping("inventory")
-public class InventoryController {
+@RequestMapping("api/inventory")
+public class InventoryController extends CustomExceptionHandler {
 
 	@Autowired
 	InventoryRepository repository;
