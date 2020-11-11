@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>2BiciPlus</name>
+	<name>Feature2BiciPlus</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -14,7 +14,7 @@
 				</dictionary>
 				<dictionary>
 					<key>composer</key>
-					<value>de.ovgu.featureide.composer.ahead</value>
+					<value>de.ovgu.featureide.core.FeatureModeling</value>
 				</dictionary>
 				<dictionary>
 					<key>equations</key>
@@ -22,18 +22,12 @@
 				</dictionary>
 				<dictionary>
 					<key>source</key>
-					<value>features</value>
+					<value>src</value>
 				</dictionary>
-			</arguments>
-		</buildCommand>
-		<buildCommand>
-			<name>org.eclipse.jdt.core.javabuilder</name>
-			<arguments>
 			</arguments>
 		</buildCommand>
 	</buildSpec>
 	<natures>
-		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>de.ovgu.featureide.core.featureProjectNature</nature>
 	</natures>
 </projectDescription>

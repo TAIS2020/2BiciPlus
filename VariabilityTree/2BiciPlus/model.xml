@@ -3,65 +3,134 @@
 	<properties>
 		<graphics key="legendautolayout" value="true"/>
 		<graphics key="showshortnames" value="false"/>
-		<graphics key="layout" value="horizontal"/>
+		<graphics key="layout" value="vertical"/>
 		<graphics key="showcollapsedconstraints" value="true"/>
 		<graphics key="legendhidden" value="false"/>
-		<graphics key="layoutalgorithm" value="1"/>
+		<graphics key="layoutalgorithm" value="4"/>
 	</properties>
 	<struct>
-		<and abstract="true" mandatory="true" name="BiciPlus">
-			<and mandatory="true" name="ECommerce">
+		<and abstract="true" mandatory="true" name="2BiciPlus">
+			<and mandatory="true" name="AtributosCalidad">
 				<graphics key="collapsed" value="false"/>
-				<feature mandatory="true" name="SimpleECommerce"/>
-				<feature name="ComposedECommerce"/>
+				<feature name="Escalabilidad"/>
+				<feature name="Seguridad"/>
+				<feature name="Confiabilidad"/>
+				<feature name="Usabilidad"/>
+				<feature name="Desempeño"/>
 			</and>
-			<or mandatory="true" name="Comparison">
-				<feature name="SimpleComparison"/>
-				<feature name="ComposedComparison"/>
-			</or>
-			<or mandatory="true" name="CustomerSupport">
-				<feature name="SimpleContactPage"/>
-				<feature name="BotCustomerSupport"/>
-				<feature name="MessageBasedCustomerSupport"/>
-			</or>
-			<feature name="UserAccount"/>
-			<feature mandatory="true" name="Payment"/>
-			<feature mandatory="true" name="Scalability"/>
-			<feature mandatory="true" name="Stability"/>
-			<alt mandatory="true" name="Security - Performance">
+			<and mandatory="true" name="Datos">
 				<graphics key="collapsed" value="false"/>
-				<feature name="Security"/>
-				<feature name="Performance"/>
+				<feature name="String"/>
+				<feature name="Int"/>
+				<feature name="Date"/>
+				<feature name="Float"/>
+			</and>
+			<alt mandatory="true" name="FlujoControl">
+				<graphics key="collapsed" value="false"/>
+				<feature name="Secuencial"/>
+				<feature name="Alternativo"/>
+				<feature name="Selectivo"/>
+				<feature name="Repetitivo"/>
 			</alt>
-			<or mandatory="true" name="Tecnology Platform">
-				<feature name="Cloud Services"/>
-				<feature name="Local Services"/>
-			</or>
+			<and mandatory="true" name="Tecnología">
+				<graphics key="collapsed" value="false"/>
+				<and mandatory="true" name="Servicios">
+					<graphics key="collapsed" value="false"/>
+					<feature name="Cloud"/>
+					<feature name="Local"/>
+				</and>
+				<and mandatory="true" name="Base de Datos">
+					<graphics key="collapsed" value="false"/>
+					<feature name="MySql"/>
+					<feature name="Oracle"/>
+					<feature name="PostgreSQL"/>
+					<feature name="Microsoft SQL Server"/>
+				</and>
+				<and mandatory="true" name="Frontend">
+					<graphics key="collapsed" value="false"/>
+					<feature name="NodeJS"/>
+					<feature name="NGINX"/>
+				</and>
+				<and mandatory="true" name="Backend">
+					<graphics key="collapsed" value="false"/>
+					<feature name="Tomcat"/>
+					<feature name="Spring"/>
+				</and>
+			</and>
+			<and mandatory="true" name="Función">
+				<graphics key="collapsed" value="false"/>
+				<alt mandatory="true" name="Comparison">
+					<graphics key="collapsed" value="false"/>
+					<feature name="SimpleComparison"/>
+					<feature name="ComposedComparison"/>
+				</alt>
+				<or mandatory="true" name="CustomerSupport">
+					<graphics key="collapsed" value="false"/>
+					<feature name="SimpleContactPage"/>
+					<feature name="BotCustomerSupport"/>
+					<feature name="MessageBasedCustomerSupport"/>
+				</or>
+				<and mandatory="true" name="UserAccount">
+					<graphics key="collapsed" value="false"/>
+					<feature mandatory="true" name="LogIn"/>
+					<feature mandatory="true" name="LogOut"/>
+					<alt mandatory="true" name="Actualizar Perfil">
+						<graphics key="collapsed" value="false"/>
+						<feature name="Contraseña"/>
+						<feature name="Dirección"/>
+						<feature name="Teléfono"/>
+					</alt>
+				</and>
+				<and mandatory="true" name="Payment">
+					<graphics key="collapsed" value="false"/>
+					<alt name="Tarjeta">
+						<graphics key="collapsed" value="false"/>
+						<feature name="Débito"/>
+						<feature name="Crédito"/>
+					</alt>
+					<feature name="Efectivo"/>
+				</and>
+				<and mandatory="true" name="ECcommerce">
+					<graphics key="collapsed" value="false"/>
+					<feature mandatory="true" name="SimpleECommerce"/>
+					<feature name="ComposedECommerce"/>
+				</and>
+			</and>
 		</and>
 	</struct>
 	<constraints>
 		<rule>
 			<imp>
-				<var>ComposedComparison</var>
+				<var>Seguridad</var>
+				<not>
+					<var>Desempeño</var>
+				</not>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>Desempeño</var>
+				<not>
+					<var>Seguridad</var>
+				</not>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>Seguridad</var>
+				<var>UserAccount</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
 				<var>ComposedECommerce</var>
+				<var>Cloud</var>
 			</imp>
 		</rule>
 		<rule>
 			<imp>
 				<var>MessageBasedCustomerSupport</var>
 				<var>UserAccount</var>
-			</imp>
-		</rule>
-		<rule>
-			<imp>
-				<var>Security</var>
-				<var>UserAccount</var>
-			</imp>
-		</rule>
-		<rule>
-			<imp>
-				<var>ComposedECommerce</var>
-				<var>Cloud Services</var>
 			</imp>
 		</rule>
 	</constraints>

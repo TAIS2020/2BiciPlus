@@ -1,16 +1,58 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <configuration>
-	<feature automatic="selected" name="BiciPlus"/>
-	<feature automatic="selected" name="ECommerce"/>
-	<feature automatic="selected" name="SimpleECommerce"/>
-	<feature automatic="selected" name="ComposedECommerce"/>
-	<feature automatic="selected" name="Comparison"/>
+	<feature name="2BiciPlus"/>
+	<feature name="AtributosCalidad"/>
+	<feature name="Escalabilidad"/>
+	<feature name="Seguridad"/>
+	<feature name="Confiabilidad"/>
+	<feature name="Usabilidad"/>
+	<feature name="Desempeño"/>
+	<feature name="Datos"/>
+	<feature name="String"/>
+	<feature name="Int"/>
+	<feature name="Date"/>
+	<feature name="Float"/>
+	<feature name="FlujoControl"/>
+	<feature name="Secuencial"/>
+	<feature name="Alternativo"/>
+	<feature name="Selectivo"/>
+	<feature name="Repetitivo"/>
+	<feature name="Tecnología"/>
+	<feature name="Servicios"/>
+	<feature name="Cloud"/>
+	<feature name="Local"/>
+	<feature name="Base de Datos"/>
+	<feature name="MySql"/>
+	<feature name="Oracle"/>
+	<feature name="PostgreSQL"/>
+	<feature name="Microsoft SQL Server"/>
+	<feature name="Frontend"/>
+	<feature name="NodeJS"/>
+	<feature name="NGINX"/>
+	<feature name="Backend"/>
+	<feature name="Tomcat"/>
+	<feature name="Spring"/>
+	<feature name="Función"/>
+	<feature name="Comparison"/>
 	<feature name="SimpleComparison"/>
-	<feature manual="selected" name="ComposedComparison"/>
-	<feature automatic="selected" name="CustomerSupport"/>
-	<feature manual="selected" name="SimpleContactPage"/>
-	<feature manual="selected" name="BotCustomerSupport"/>
+	<feature name="ComposedComparison"/>
+	<feature name="CustomerSupport"/>
+	<feature name="SimpleContactPage"/>
+	<feature name="BotCustomerSupport"/>
 	<feature name="MessageBasedCustomerSupport"/>
 	<feature name="UserAccount"/>
-	<feature automatic="selected" name="Payment"/>
+	<feature name="LogIn"/>
+	<feature name="LogOut"/>
+	<feature name="Actualizar Perfil"/>
+	<feature name="Contraseña"/>
+	<feature name="Dirección"/>
+	<feature name="Teléfono"/>
+	<feature name="Payment"/>
+	<feature name="Tarjeta"/>
+	<feature name="Débito"/>
+	<feature name="Crédito"/>
+	<feature name="Efectivo"/>
+	<feature name="ECcommerce"/>
+	<feature name="SimpleECommerce"/>
+	<feature name="ComposedECommerce"/>
 </configuration>
