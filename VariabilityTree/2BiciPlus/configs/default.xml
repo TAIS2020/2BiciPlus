@@ -1,58 +1,75 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <configuration>
-	<feature name="2BiciPlus"/>
-	<feature name="AtributosCalidad"/>
+	<feature automatic="selected" name="2BiciPlus"/>
+	<feature automatic="selected" name="AtributosCalidad"/>
 	<feature name="Escalabilidad"/>
 	<feature name="Seguridad"/>
 	<feature name="Confiabilidad"/>
 	<feature name="Usabilidad"/>
-	<feature name="Desempeño"/>
-	<feature name="Datos"/>
-	<feature name="String"/>
-	<feature name="Int"/>
-	<feature name="Date"/>
-	<feature name="Float"/>
-	<feature name="FlujoControl"/>
-	<feature name="Secuencial"/>
-	<feature name="Alternativo"/>
-	<feature name="Selectivo"/>
-	<feature name="Repetitivo"/>
-	<feature name="Tecnología"/>
-	<feature name="Servicios"/>
-	<feature name="Cloud"/>
-	<feature name="Local"/>
-	<feature name="Base de Datos"/>
-	<feature name="MySql"/>
-	<feature name="Oracle"/>
-	<feature name="PostgreSQL"/>
+	<feature name="DesempeÃ±o"/>
+	<feature name="Elasticidad"/>
+	<feature automatic="selected" name="Datos"/>
+	<feature automatic="selected" name="Estructura"/>
+	<feature automatic="selected" name="String"/>
+	<feature automatic="selected" manual="selected" name="Int"/>
+	<feature automatic="selected" name="Float"/>
+	<feature manual="selected" name="Date"/>
+	<feature automatic="selected" name="FlujoControl"/>
+	<feature automatic="unselected" name="Secuencial"/>
+	<feature automatic="unselected" name="Alternativo"/>
+	<feature manual="selected" name="Selectivo"/>
+	<feature automatic="unselected" name="Repetitivo"/>
+	<feature automatic="selected" name="TecnologÃ­a"/>
+	<feature automatic="selected" name="Servicios"/>
+	<feature automatic="selected" manual="selected" name="Cloud"/>
+	<feature automatic="unselected" name="Local"/>
+	<feature automatic="selected" name="Base de Datos"/>
+	<feature automatic="selected" name="MySql"/>
+	<feature automatic="unselected" name="Oracle"/>
+	<feature automatic="selected" name="PostgreSQL"/>
 	<feature name="Microsoft SQL Server"/>
-	<feature name="Frontend"/>
-	<feature name="NodeJS"/>
-	<feature name="NGINX"/>
-	<feature name="Backend"/>
-	<feature name="Tomcat"/>
-	<feature name="Spring"/>
-	<feature name="Función"/>
-	<feature name="Comparison"/>
-	<feature name="SimpleComparison"/>
-	<feature name="ComposedComparison"/>
-	<feature name="CustomerSupport"/>
-	<feature name="SimpleContactPage"/>
-	<feature name="BotCustomerSupport"/>
-	<feature name="MessageBasedCustomerSupport"/>
-	<feature name="UserAccount"/>
-	<feature name="LogIn"/>
-	<feature name="LogOut"/>
-	<feature name="Actualizar Perfil"/>
-	<feature name="Contraseña"/>
-	<feature name="Dirección"/>
-	<feature name="Teléfono"/>
-	<feature name="Payment"/>
-	<feature name="Tarjeta"/>
-	<feature name="Débito"/>
-	<feature name="Crédito"/>
-	<feature name="Efectivo"/>
-	<feature name="ECcommerce"/>
-	<feature name="SimpleECommerce"/>
-	<feature name="ComposedECommerce"/>
+	<feature automatic="selected" name="Frontend"/>
+	<feature manual="selected" name="NodeJS"/>
+	<feature automatic="unselected" name="NGINX"/>
+	<feature automatic="selected" name="Backend"/>
+	<feature manual="selected" name="Tomcat"/>
+	<feature automatic="unselected" name="Spring"/>
+	<feature automatic="selected" name="Sistema Operativo"/>
+	<feature automatic="selected" name="Windows"/>
+	<feature name="Linux"/>
+	<feature automatic="selected" name="IOS"/>
+	<feature automatic="selected" name="Android"/>
+	<feature automatic="selected" name="FunciÃ³n"/>
+	<feature automatic="selected" name="Comparison"/>
+	<feature automatic="unselected" name="SimpleComparison"/>
+	<feature manual="selected" name="ComposedComparison"/>
+	<feature automatic="selected" name="CustomerSupport"/>
+	<feature manual="selected" name="SimpleContactPage"/>
+	<feature manual="selected" name="BotCustomerSupport"/>
+	<feature manual="selected" name="MessageBasedCustomerSupport"/>
+	<feature automatic="selected" name="UserAccount"/>
+	<feature automatic="selected" name="LogIn"/>
+	<feature automatic="selected" name="LogOut"/>
+	<feature automatic="selected" name="Actualizar Perfil"/>
+	<feature manual="selected" name="ContraseÃ±a"/>
+	<feature manual="selected" name="DirecciÃ³n"/>
+	<feature manual="selected" name="TelÃ©fono"/>
+	<feature automatic="selected" name="Celular"/>
+	<feature automatic="unselected" name="Fijo"/>
+	<feature automatic="selected" name="Correo"/>
+	<feature manual="selected" name="Gmail"/>
+	<feature automatic="unselected" name="Outlook"/>
+	<feature automatic="selected" name="Payment"/>
+	<feature automatic="selected" manual="selected" name="Tarjeta"/>
+	<feature manual="selected" name="DÃ©bito"/>
+	<feature automatic="unselected" name="CrÃ©dito"/>
+	<feature automatic="unselected" name="Efectivo"/>
+	<feature automatic="unselected" name="ConsignaciÃ³n Bancaria"/>
+	<feature automatic="selected" name="ECcommerce"/>
+	<feature automatic="selected" name="SimpleECommerce"/>
+	<feature manual="selected" name="ComposedECommerce"/>
+	<feature automatic="selected" name="Entorno"/>
+	<feature automatic="selected" name="Middleware"/>
+	<feature manual="selected" name="Java"/>
+	<feature automatic="unselected" name="C++"/>
 </configuration>
