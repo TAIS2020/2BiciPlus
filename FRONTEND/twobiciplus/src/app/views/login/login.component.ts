@@ -18,11 +18,12 @@ export class LoginComponent implements OnInit {
               private route: Router) { }
 
   login() {
-    const user = { email: this.email, password: this.password };
+    const user = { username: this.email, password: this.password };
     this.loginService.login(user).subscribe(
       data => {
         console.log(data);
-        if (true /* here goes the validation*/) {
+        this.loginService.token = data;
+        if ( true /* here goes the validation*/) {
           const result = data as ServerResponse;
           this.loginService.setPropertieCookie('token', result.token!);
           this.loginService.setPropertieCookie('username', result.userName!);

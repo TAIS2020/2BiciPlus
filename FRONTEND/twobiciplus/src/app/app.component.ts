@@ -11,7 +11,6 @@ import { Location } from '@angular/common';
 
 export class AppComponent implements OnInit {
   values: string[] = ['Tag 1', 'Tag 2', 'Tag 4'];
-  
 
   specialPage: boolean;
   home: boolean = true;
@@ -33,7 +32,7 @@ export class AppComponent implements OnInit {
     private location: Location
   ) {
 
-    this.router.events.subscribe((route:any) => {
+    this.router.events.subscribe((route: any) => {
       this.currentUrl = route.url;
 
       this.specialPage = this.specialPages.indexOf(this.currentUrl) !== -1;
