@@ -10,7 +10,7 @@ export class CascadingCardComponent implements OnInit {
   @Input() headerType = '';
   @Input() title = '';
   @Input() alignment = 'center';
-  @Input() src = '';
+  @Input() src= '';
   constructor() { }
 
   ngOnInit() {

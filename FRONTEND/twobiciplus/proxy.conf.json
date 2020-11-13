@@ -5,13 +5,5 @@
             "port": "8080",
             "protocol": "http"
         }
-    },
-    "/token": {
-        "target": {
-            "host": "localhost",
-            "port": "8080",
-            "protocol": "http"
-        }
     }
-
 }

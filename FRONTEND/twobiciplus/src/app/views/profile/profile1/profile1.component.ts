@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-profile1',
@@ -54,13 +53,9 @@ export class Profile1Component implements OnInit {
       description: 'Image 9'
     }
 ];
-person: any;
-  constructor(private auth: AuthService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.auth.getPerson().subscribe((data) => {
-      this.person = data.result as any;
-    });
   }
 
 }
