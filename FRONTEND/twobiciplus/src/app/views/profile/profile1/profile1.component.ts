@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ServerResponse } from 'src/app/interfaces/server-response';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -59,7 +60,7 @@ person: any;
 
   ngOnInit() {
     this.auth.getPerson().subscribe((data) => {
-      this.person = data.result as any;
+      this.person = (data as ServerResponse).result;
     });
   }
 

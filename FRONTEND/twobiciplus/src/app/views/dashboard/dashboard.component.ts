@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ServerResponse } from 'src/app/interfaces/server-response';
 import { ProductServiceService } from 'src/app/services/product-service.service';
 
 @Component({
@@ -22,7 +23,7 @@ export class DashboardComponent implements OnInit {
     console.log('viene');
     productService.getProducts().subscribe((data) => {
       console.log(data);
-      this.products = data.result as any;
+      this.products = (data as ServerResponse).result ;
     });
   }
 

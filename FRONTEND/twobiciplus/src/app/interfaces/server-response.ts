@@ -1,4 +1,5 @@
 export interface ServerResponse {
+    result?: any;
     serviceResponse: {
         result: string,
         errorCode?: number,
