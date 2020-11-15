@@ -35,7 +35,7 @@ public class PersonController<T extends Person> extends CustomExceptionHandler {
 		if(id == null) {
 			return new Response(Response.Status.OK, repository.findAll());
 		} else {
-			return new Response(Response.Status.OK, repository.findById(id).get());			
+			return new Response(Response.Status.OK, repository.findEntityById(id));			
 		}
 	}
 

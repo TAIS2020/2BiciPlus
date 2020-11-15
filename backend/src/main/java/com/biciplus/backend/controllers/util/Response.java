@@ -6,7 +6,8 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 public class Response {
 	public enum Status {
 		OK,
-		ERROR
+		ERROR,
+		FEATURE_DISABLED
 	}
 	
 	private String status;

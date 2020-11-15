@@ -26,12 +26,17 @@ public class CategoryController extends CustomExceptionHandler {
 		return new Response(Response.Status.OK, repository.save(entity));
 	}
 
+	@RequestMapping(method = RequestMethod.GET)
+	public Response list() {
+		return new Response(Response.Status.OK, repository.findAll());
+	}
+
 	@RequestMapping(path = "/{id}", method = RequestMethod.GET)
 	public Response get(@PathVariable("id") Long id) {
 		if(id == null) {
 			return new Response(Response.Status.OK, repository.findAll());
 		} else {
-			return new Response(Response.Status.OK, repository.findById(id).get());			
+			return new Response(Response.Status.OK, repository.findEntityById(id));			
 		}
 	}
 

@@ -2,13 +2,11 @@ package com.biciplus.backend.controllers;
 
 import java.util.Date;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Optional;
 import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -50,6 +48,7 @@ public class MeController<T extends Person, Y extends Product> extends CustomExc
 		return new Response(Response.Status.OK, getPersonFromToken(token));
 	}
 
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/shoppingCart", method = RequestMethod.GET)
 	public Response getShoppingCart(@RequestHeader (name="Authorization") String token) throws Exception {
 		Customer customer = getCustomerFromToken(token);
@@ -62,6 +61,7 @@ public class MeController<T extends Person, Y extends Product> extends CustomExc
 		return new Response(Response.Status.OK, customer.getShoppingCart());
 	}
 
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/shoppingCart", method = RequestMethod.DELETE)
 	public Response deleteShoppingCart(@RequestHeader (name="Authorization") String token) throws Exception {
 		Customer customer = getCustomerFromToken(token);
@@ -74,6 +74,7 @@ public class MeController<T extends Person, Y extends Product> extends CustomExc
 		return new Response(Response.Status.OK);
 	}
 
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/shoppingCart/product", method = RequestMethod.POST)
 	public Response postProduct(@RequestHeader (name="Authorization") String token, @RequestBody Y product) throws Exception {
 		Customer customer = getCustomerFromToken(token);
@@ -109,6 +110,7 @@ public class MeController<T extends Person, Y extends Product> extends CustomExc
 		return new Response(Response.Status.OK, customer.getShoppingCart());
 	}
 
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/shoppingCart/product", method = RequestMethod.DELETE)
 	public Response deleteProduct(@RequestHeader (name="Authorization") String token, @RequestBody Y product) throws Exception {
 		Customer customer = getCustomerFromToken(token);
@@ -139,6 +141,7 @@ public class MeController<T extends Person, Y extends Product> extends CustomExc
 		return new Response(Response.Status.OK, customer.getShoppingCart());
 	}
 
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/shoppingCart/order", method = RequestMethod.POST)
 	public Response postOrder(@RequestHeader (name="Authorization") String token) throws Exception {
 		Customer customer = getCustomerFromToken(token);
@@ -159,6 +162,7 @@ public class MeController<T extends Person, Y extends Product> extends CustomExc
 		return new Response(Response.Status.OK, order);
 	}
 
+	@SuppressWarnings("unused")
 	private Seller getSellerFromToken(String token) throws Exception {
 		Person person = getPersonFromToken(token);
 		if(!(person instanceof Customer)) throw new Exception("Person is not a seller");
@@ -177,23 +181,4 @@ public class MeController<T extends Person, Y extends Product> extends CustomExc
 		if (!optionalPerson.isPresent()) throw new Exception("Unauthorized User");
 		return optionalPerson.get();
 	}
-	
-	/*@SuppressWarnings("unchecked")
-	@RequestMapping(path = "/{id}/orderHistory/order", method = RequestMethod.POST)
-	public Response post(@RequestBody OrderHistory entity, @PathVariable("id") Long personId) {
-		entity.setId(null);
-		Customer customer = (Customer) personRepository.findById(personId).get();
-		Set<OrderHistory> orderHistory = customer.getOrderHistory();
-		OrderHistory persistedOrderHistory = orderHistoryRepository.save(entity);
-		orderHistory.add(persistedOrderHistory);
-		customer.setOrderHistory(orderHistory);
-		personRepository.save((T) customer);
-		return new Response(Response.Status.OK, orderHistory);
-	}
-
-	@RequestMapping(path = "/{id}/orderHistory", method = RequestMethod.GET)
-	public Response get(@PathVariable("id") Long personId) {
-		Customer customer = (Customer) personRepository.findById(personId).get();
-		return new Response(Response.Status.OK, customer.getOrderHistory());
-	}*/
 }
