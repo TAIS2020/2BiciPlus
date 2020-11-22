@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<featureModel>
+	<properties>
+		<graphics key="legendautolayout" value="true"/>
+		<graphics key="showshortnames" value="false"/>
+		<graphics key="layout" value="horizontal"/>
+		<graphics key="showcollapsedconstraints" value="true"/>
+		<graphics key="legendhidden" value="false"/>
+		<graphics key="layoutalgorithm" value="1"/>
+	</properties>
+	<struct>
+		<and abstract="true" mandatory="true" name="BiciPlus">
+			<graphics key="collapsed" value="false"/>
+			<and name="Comparison">
+				<feature mandatory="true" name="SimpleComparison"/>
+				<feature name="ComposedComparison"/>
+			</and>
+			<and mandatory="true" name="CustomerSupport">
+				<feature mandatory="true" name="SimpleContactPage"/>
+				<feature name="BotCustomerSupport"/>
+				<feature name="MessageBasedCustomerSupport"/>
+			</and>
+			<feature mandatory="true" name="UserAccount"/>
+			<feature mandatory="true" name="Payment"/>
+			<and mandatory="true" name="ECommerce">
+				<feature mandatory="true" name="SimpleECommerce"/>
+				<feature name="ComposedECommerce"/>
+			</and>
+			<and name="Reports">
+				<feature name="SimpleReport"/>
+				<feature name="ComposedReport"/>
+			</and>
+		</and>
+	</struct>
+	<constraints>
+		<rule>
+			<imp>
+				<var>ComposedComparison</var>
+				<var>ComposedECommerce</var>
+			</imp>
+		</rule>
+	</constraints>
+</featureModel>
