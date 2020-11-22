@@ -7,6 +7,7 @@ import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,11 +20,13 @@ import com.biciplus.backend.model.Customer;
 import com.biciplus.backend.model.OrderHistory;
 import com.biciplus.backend.model.Person;
 import com.biciplus.backend.model.Product;
+import com.biciplus.backend.model.Question;
 import com.biciplus.backend.model.Seller;
 import com.biciplus.backend.model.ShoppingCart;
 import com.biciplus.backend.model.ShoppingCartEntry;
 import com.biciplus.backend.repositories.OrderHistoryRepository;
 import com.biciplus.backend.repositories.PersonRepository;
+import com.biciplus.backend.repositories.QuestionRepository;
 import com.biciplus.backend.repositories.ShoppingCartEntryRepository;
 import com.biciplus.backend.repositories.ShoppingCartRepository;
 import com.biciplus.backend.services.AuthenticationService;
@@ -40,6 +43,8 @@ public class MeController<T extends Person, Y extends Product> extends CustomExc
 	ShoppingCartEntryRepository shoppingCartEntryRepository;
 	@Autowired
 	OrderHistoryRepository orderHistoryRepository;
+	@Autowired
+	QuestionRepository questionRepository;
 	@Autowired
 	AuthenticationService<T> authenticationService;
 
@@ -162,10 +167,38 @@ public class MeController<T extends Person, Y extends Product> extends CustomExc
 		return new Response(Response.Status.OK, order);
 	}
 
+	@SuppressWarnings("unchecked")
+	@RequestMapping(value = "/question", method = RequestMethod.POST)
+	public Response postQuestion(@RequestHeader (name="Authorization") String token, @RequestBody Question question) throws Exception {
+		if(question.getQuestion() == null || question.getQuestion().isEmpty()) throw new Exception("Invalid question");
+		Customer customer = getCustomerFromToken(token);
+		question.setId(null);
+		question.setAnswerer(null);
+		question.setAnswerer(null);
+		HashSet<Question> questions = new HashSet<Question>(customer.getQuestions());
+		questions.add(questionRepository.save(question));
+		customer.setQuestions(questions);
+		personRepository.save((T) customer);
+		return new Response(Response.Status.OK, question);
+	}
+
+	@RequestMapping(value = "/questions/{id}/answer", method = RequestMethod.POST)
+	public Response postQuestionAnswer(@RequestHeader (name="Authorization") String token, @PathVariable("id") Long id, @RequestBody Question question) throws Exception {
+		if(question.getAnswer() == null || question.getAnswer().isEmpty()) throw new Exception("Invalid answer");
+		String answer = question.getAnswer();
+		question = questionRepository.findEntityById(id);
+		if(question == null) throw new Exception("Question does not exist");
+		if(question.getAnswer() != null) throw new Exception("Question already answered");
+		
+		question.setAnswer(answer);
+		question.setAnswerer(getSellerFromToken(token));
+		return new Response(Response.Status.OK, questionRepository.save(question));
+	}
+
 	@SuppressWarnings("unused")
 	private Seller getSellerFromToken(String token) throws Exception {
 		Person person = getPersonFromToken(token);
-		if(!(person instanceof Customer)) throw new Exception("Person is not a seller");
+		if(!(person instanceof Seller)) throw new Exception("Person is not a seller");
 		return (Seller) person;
 	}
 	
