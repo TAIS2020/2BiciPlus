@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ServerResponse } from 'src/app/interfaces/server-response';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-profile1',
@@ -53,9 +55,13 @@ export class Profile1Component implements OnInit {
       description: 'Image 9'
     }
 ];
-  constructor() { }
+  person: any;
+  constructor(private auth: AuthService) { }
 
   ngOnInit() {
+    this.auth.getPerson().subscribe((data) => {
+      this.person = (data as ServerResponse).result;
+    });
   }
 
 }

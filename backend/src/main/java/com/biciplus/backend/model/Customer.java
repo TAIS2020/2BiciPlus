@@ -14,16 +14,16 @@ public class Customer extends Person {
 	protected Set<OrderHistory> orderHistory;
     @OneToOne
     private ShoppingCart shoppingCart;
+    @OneToMany(cascade = CascadeType.REFRESH)
+	protected Set<Question> questions;
     
 	public Set<OrderHistory> getOrderHistory() {
 		if(this.orderHistory == null) return new HashSet<>();
 		return orderHistory;
 	}
-
 	public void setOrderHistory(Set<OrderHistory> orderHistory) {
 		this.orderHistory = orderHistory;
 	}
-
 	@Override
 	public String getType() {
 		return "customer";
@@ -35,5 +35,14 @@ public class Customer extends Person {
 
 	public void setShoppingCart(ShoppingCart shoppingCart) {
 		this.shoppingCart = shoppingCart;
+	}
+
+	public Set<Question> getQuestions() {
+		if(this.questions == null) return new HashSet<>();
+		return questions;
+	}
+
+	public void setQuestions(Set<Question> questions) {
+		this.questions = questions;
 	}
 }

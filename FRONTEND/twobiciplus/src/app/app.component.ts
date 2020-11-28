@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
 
   specialPage: boolean;
   home: boolean = true;
-  successLogin: boolean = true;
+  successLogin: boolean = false;
 
   private specialPages: any[] = [
     '/pages/login',

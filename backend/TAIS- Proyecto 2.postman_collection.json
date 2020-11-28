@@ -1,0 +1,1381 @@
+{
+	"info": {
+		"_postman_id": "f3a85b16-b302-4584-83ef-db44c497d845",
+		"name": "TAIS- Proyecto 2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "SimpleProduct",
+					"item": [
+						{
+							"name": "SimpleProduct - Create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{AuthenticationToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"ASDASD\",\r\n    \"categories\": [\r\n        {\r\n            \"id\": \"1\"\r\n        }\r\n    ],\r\n    \"price\": \"10000\",\r\n    \"details\": \"test\",\r\n    \"photoURL\": \"test\",\r\n    \"type\": \"simple\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ApiRestBaseURL}}product",
+									"host": [
+										"{{ApiRestBaseURL}}product"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "SimpleProduct - Update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{AuthenticationToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 23,\r\n    \"name\": \"test\",\r\n    \"categories\": [\r\n        {\r\n            \"id\": \"3\"\r\n        }\r\n    ],\r\n    \"price\": \"10000\",\r\n    \"details\": \"test\",\r\n    \"photoURL\": \"test\",\r\n    \"type\": \"simple\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ApiRestBaseURL}}product",
+									"host": [
+										"{{ApiRestBaseURL}}product"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "ComposedProduct",
+					"item": [
+						{
+							"name": "ComposedProduct - Create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{AuthenticationToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"type\": \"composed\",\r\n    \"subProducts\":[{\r\n            \"type\": \"simple\",\r\n            \"id\": 2\r\n        }, {\r\n            \"type\": \"simple\",\r\n            \"id\": 3\r\n        }]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ApiRestBaseURL}}product",
+									"host": [
+										"{{ApiRestBaseURL}}product"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ComposedProduct - Update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{AuthenticationToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 7,\r\n    \"type\": \"composed\",\r\n    \"subProducts\":[{\r\n            \"type\": \"simple\",\r\n            \"id\": 3\r\n        }]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ApiRestBaseURL}}product",
+									"host": [
+										"{{ApiRestBaseURL}}product"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Product - Read",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AuthenticationToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ApiRestBaseURL}}product/9",
+							"host": [
+								"{{ApiRestBaseURL}}product"
+							],
+							"path": [
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Product - Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AuthenticationToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{ApiRestBaseURL}}product/32",
+							"host": [
+								"{{ApiRestBaseURL}}product"
+							],
+							"path": [
+								"32"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Product - List",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AuthenticationToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ApiRestBaseURL}}product",
+							"host": [
+								"{{ApiRestBaseURL}}product"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Inventory",
+			"item": [
+				{
+					"name": "Inventory - Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AuthenticationToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"products\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ApiRestBaseURL}}inventory",
+							"host": [
+								"{{ApiRestBaseURL}}inventory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Inventory - Read",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AuthenticationToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ApiRestBaseURL}}inventory/2",
+							"host": [
+								"{{ApiRestBaseURL}}inventory"
+							],
+							"path": [
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Inventory - Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AuthenticationToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 2,\r\n    \"products\": [\r\n        {\r\n            \"type\": \"simple\",\r\n            \"id\": 9,\r\n            \"categories\": [\r\n                {\r\n                    \"id\": 1,\r\n                    \"name\": \"Bicicletas\"\r\n                }\r\n            ],\r\n            \"name\": \"ASDASD\",\r\n            \"price\": 10000,\r\n            \"details\": \"test\",\r\n            \"photoURL\": \"test\",\r\n            \"type\": \"simple\"\r\n        },\r\n        {\r\n            \"type\": \"simple\",\r\n            \"id\": 19,\r\n            \"categories\": [\r\n                {\r\n                    \"id\": 1,\r\n                    \"name\": \"Bicicletas\"\r\n                }\r\n            ],\r\n            \"name\": \"ASDASD\",\r\n            \"price\": 10000,\r\n            \"details\": \"test\",\r\n            \"photoURL\": \"test\",\r\n            \"type\": \"simple\"\r\n        },\r\n        {\r\n            \"type\": \"simple\",\r\n            \"id\": 2,\r\n            \"categories\": [\r\n                {\r\n                    \"id\": 1,\r\n                    \"name\": \"Bicicletas\"\r\n                }\r\n            ],\r\n            \"name\": \"test\",\r\n            \"price\": 10000,\r\n            \"details\": \"test\",\r\n            \"photoURL\": \"test\",\r\n            \"type\": \"simple\"\r\n        },\r\n        {\r\n            \"type\": \"simple\",\r\n            \"id\": 8,\r\n            \"categories\": [\r\n                {\r\n                    \"id\": 1,\r\n                    \"name\": \"Bicicletas\"\r\n                }\r\n            ],\r\n            \"name\": \"ASDASD\",\r\n            \"price\": 10000,\r\n            \"details\": \"test\",\r\n            \"photoURL\": \"test\",\r\n            \"type\": \"simple\"\r\n        },\r\n        {\r\n            \"type\": \"simple\",\r\n            \"id\": 7,\r\n            \"categories\": [\r\n                {\r\n                    \"id\": 1,\r\n                    \"name\": \"Bicicletas\"\r\n                }\r\n            ],\r\n            \"name\": \"ASDASD\",\r\n            \"price\": 10000,\r\n            \"details\": \"test\",\r\n            \"photoURL\": \"test\",\r\n            \"type\": \"simple\"\r\n        },\r\n        {\r\n            \"type\": \"simple\",\r\n            \"id\": 6,\r\n            \"categories\": [\r\n                {\r\n                    \"id\": 1,\r\n                    \"name\": \"Bicicletas\"\r\n                }\r\n            ],\r\n            \"name\": \"ASDASD\",\r\n            \"price\": 10000,\r\n            \"details\": \"test\",\r\n            \"photoURL\": \"test\",\r\n            \"type\": \"simple\"\r\n        },\r\n        {\r\n            \"type\": \"simple\",\r\n            \"id\": 3,\r\n            \"categories\": [\r\n                {\r\n                    \"id\": 1,\r\n                    \"name\": \"Bicicletas\"\r\n                }\r\n            ],\r\n            \"name\": \"ASDASD\",\r\n            \"price\": 10000,\r\n            \"details\": \"test\",\r\n            \"photoURL\": \"test\",\r\n            \"type\": \"simple\"\r\n        },\r\n        {\r\n            \"type\": \"simple\",\r\n            \"id\": 14,\r\n            \"categories\": [\r\n                {\r\n                    \"id\": 1,\r\n                    \"name\": \"Bicicletas\"\r\n                }\r\n            ],\r\n            \"name\": \"ASDASD\",\r\n            \"price\": 10000,\r\n            \"details\": \"test\",\r\n            \"photoURL\": \"test\",\r\n            \"type\": \"simple\"\r\n        },\r\n        {\r\n            \"type\": \"simple\",\r\n            \"id\": 5,\r\n            \"categories\": [\r\n                {\r\n                    \"id\": 1,\r\n                    \"name\": \"Bicicletas\"\r\n                }\r\n            ],\r\n            \"name\": \"ASDASD\",\r\n            \"price\": 10000,\r\n            \"details\": \"test\",\r\n            \"photoURL\": \"test\",\r\n            \"type\": \"simple\"\r\n        },\r\n        {\r\n            \"type\": \"simple\",\r\n            \"id\": 4,\r\n            \"categories\": [\r\n                {\r\n                    \"id\": 1,\r\n                    \"name\": \"Bicicletas\"\r\n                }\r\n            ],\r\n            \"name\": \"ASDASD\",\r\n            \"price\": 10000,\r\n            \"details\": \"test\",\r\n            \"photoURL\": \"test\",\r\n            \"type\": \"simple\"\r\n        },\r\n        {\r\n            \"type\": \"simple\",\r\n            \"id\": 17,\r\n            \"categories\": [\r\n                {\r\n                    \"id\": 1,\r\n                    \"name\": \"Bicicletas\"\r\n                }\r\n            ],\r\n            \"name\": \"ASDASD\",\r\n            \"price\": 10000,\r\n            \"details\": \"test\",\r\n            \"photoURL\": \"test\",\r\n            \"type\": \"simple\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ApiRestBaseURL}}inventory",
+							"host": [
+								"{{ApiRestBaseURL}}inventory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Inventory - Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AuthenticationToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{ApiRestBaseURL}}inventory?id=6",
+							"host": [
+								"{{ApiRestBaseURL}}inventory"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Inventory - List",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AuthenticationToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ApiRestBaseURL}}inventory",
+							"host": [
+								"{{ApiRestBaseURL}}inventory"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Person",
+			"item": [
+				{
+					"name": "Customer",
+					"item": [
+						{
+							"name": "Customer - Create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{AuthenticationToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"login\": \"customer\",\r\n    \"password\": \"customer\",\r\n    \"address\": null,\r\n    \"phoneNumber\": null,\r\n    \"cellNumber\": null,\r\n    \"firstName\": null,\r\n    \"lastName\": null,\r\n    \"type\": \"customer\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ApiRestBaseURL}}person",
+									"host": [
+										"{{ApiRestBaseURL}}person"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Customer - Update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{AuthenticationToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 3,\r\n    \"login\": null,\r\n    \"password\": null,\r\n    \"address\": null,\r\n    \"phoneNumber\": null,\r\n    \"cellNumber\": null,\r\n    \"firstName\": null,\r\n    \"lastName\": null,\r\n    \"token\": null,\r\n    \"orderHistory\": [],\r\n    \"shoppingCart\": {\r\n        \"id\": 4,\r\n        \"products\": [\r\n            {\r\n                \"type\": \"simple\",\r\n                \"id\": 2,\r\n                \"categories\": [],\r\n                \"name\": \"test\",\r\n                \"price\": 10,\r\n                \"details\": \"test\",\r\n                \"photoURL\": \"test\",\r\n                \"type\": \"simple\"\r\n            }\r\n        ],\r\n        \"totalPrice\": 10\r\n    },\r\n    \"type\": \"customer\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ApiRestBaseURL}}person",
+									"host": [
+										"{{ApiRestBaseURL}}person"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Seller",
+					"item": [
+						{
+							"name": "Seller - Create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{AuthenticationToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"login\": \"seller\",\r\n    \"password\": \"seller\",\r\n    \"address\": null,\r\n    \"phoneNumber\": null,\r\n    \"cellNumber\": null,\r\n    \"firstName\": null,\r\n    \"lastName\": null,\r\n    \"type\": \"seller\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ApiRestBaseURL}}person",
+									"host": [
+										"{{ApiRestBaseURL}}person"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Seller - Update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{AuthenticationToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 3,\r\n    \"login\": null,\r\n    \"password\": null,\r\n    \"address\": null,\r\n    \"phoneNumber\": null,\r\n    \"cellNumber\": null,\r\n    \"firstName\": null,\r\n    \"lastName\": null,\r\n    \"type\": \"seller\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ApiRestBaseURL}}person",
+									"host": [
+										"{{ApiRestBaseURL}}person"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Category",
+					"item": [
+						{
+							"name": "Category - Create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{AuthenticationToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Bicicletas\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ApiRestBaseURL}}category",
+									"host": [
+										"{{ApiRestBaseURL}}category"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Category - Read",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{AuthenticationToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ApiRestBaseURL}}category/1",
+									"host": [
+										"{{ApiRestBaseURL}}category"
+									],
+									"path": [
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Category - Update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{AuthenticationToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 1,\r\n    \"name\": \"Manubrios\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ApiRestBaseURL}}category",
+									"host": [
+										"{{ApiRestBaseURL}}category"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Category - Delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{AuthenticationToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{ApiRestBaseURL}}category/12",
+									"host": [
+										"{{ApiRestBaseURL}}category"
+									],
+									"path": [
+										"12"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Category - List",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{AuthenticationToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ApiRestBaseURL}}category",
+									"host": [
+										"{{ApiRestBaseURL}}category"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Person - Read",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AuthenticationToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ApiRestBaseURL}}person/3",
+							"host": [
+								"{{ApiRestBaseURL}}person"
+							],
+							"path": [
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Person - Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AuthenticationToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{ApiRestBaseURL}}person/6",
+							"host": [
+								"{{ApiRestBaseURL}}person"
+							],
+							"path": [
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Person - List",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AuthenticationToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ApiRestBaseURL}}person",
+							"host": [
+								"{{ApiRestBaseURL}}person"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Me",
+			"item": [
+				{
+					"name": "Me - Read",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AuthenticationToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ApiRestBaseURL}}me",
+							"host": [
+								"{{ApiRestBaseURL}}me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ShoppingCart - Read",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AuthenticationToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ApiRestBaseURL}}me/shoppingCart",
+							"host": [
+								"{{ApiRestBaseURL}}me"
+							],
+							"path": [
+								"shoppingCart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ShoppingCart - Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AuthenticationToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{ApiRestBaseURL}}me/shoppingCart",
+							"host": [
+								"{{ApiRestBaseURL}}me"
+							],
+							"path": [
+								"shoppingCart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Product - Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AuthenticationToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 2,\r\n    \"categories\": [\r\n        {\r\n            \"id\": 1,\r\n            \"name\": \"Manubrios\"\r\n        }\r\n    ],\r\n    \"name\": \"test\",\r\n    \"price\": 10000,\r\n    \"details\": \"test\",\r\n    \"photoURL\": \"test\",\r\n    \"type\": \"simple\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ApiRestBaseURL}}me/shoppingCart/product",
+							"host": [
+								"{{ApiRestBaseURL}}me"
+							],
+							"path": [
+								"shoppingCart",
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Product - Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AuthenticationToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 2,\r\n    \"categories\": [\r\n        {\r\n            \"id\": 1,\r\n            \"name\": \"Manubrios\"\r\n        }\r\n    ],\r\n    \"name\": \"test\",\r\n    \"price\": 10000,\r\n    \"details\": \"test\",\r\n    \"photoURL\": \"test\",\r\n    \"type\": \"simple\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ApiRestBaseURL}}me/shoppingCart/product",
+							"host": [
+								"{{ApiRestBaseURL}}me"
+							],
+							"path": [
+								"shoppingCart",
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Order - Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AuthenticationToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ApiRestBaseURL}}me/shoppingCart/order",
+							"host": [
+								"{{ApiRestBaseURL}}me"
+							],
+							"path": [
+								"shoppingCart",
+								"order"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Token",
+			"item": [
+				{
+					"name": "Token - Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9b5d32cf-c585-40fb-975a-7cb907706776",
+								"exec": [
+									"pm.globals.set(\"AuthenticationToken\", responseBody);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "seller",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "seller",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{ApiRestTokenURL}}",
+							"host": [
+								"{{ApiRestTokenURL}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Configuration",
+			"item": [
+				{
+					"name": "Configuration - Read",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AuthenticationToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ApiRestBaseURL}}configuration",
+							"host": [
+								"{{ApiRestBaseURL}}configuration"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "OrderHistory",
+			"item": [
+				{
+					"name": "OrderHistory - List",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AuthenticationToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ApiRestBaseURL}}orderHistory",
+							"host": [
+								"{{ApiRestBaseURL}}orderHistory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OrderHistory - Read",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AuthenticationToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ApiRestBaseURL}}orderHistory/2",
+							"host": [
+								"{{ApiRestBaseURL}}orderHistory"
+							],
+							"path": [
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delivery - Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AuthenticationToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"products\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ApiRestBaseURL}}orderHistory/2/shipping",
+							"host": [
+								"{{ApiRestBaseURL}}orderHistory"
+							],
+							"path": [
+								"2",
+								"shipping"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Question",
+			"item": [
+				{
+					"name": "Question - Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AuthenticationToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"question\": \"Esta es una pregunta\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ApiRestBaseURL}}bot/question",
+							"host": [
+								"{{ApiRestBaseURL}}bot"
+							],
+							"path": [
+								"question"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Answer - Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AuthenticationToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"answer\": \"Esta es una pregunta\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ApiRestBaseURL}}me/questions/3/answer",
+							"host": [
+								"{{ApiRestBaseURL}}me"
+							],
+							"path": [
+								"questions",
+								"3",
+								"answer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Question - Read",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AuthenticationToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ApiRestBaseURL}}question/2",
+							"host": [
+								"{{ApiRestBaseURL}}question"
+							],
+							"path": [
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Question - List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AuthenticationToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ApiRestBaseURL}}question",
+							"host": [
+								"{{ApiRestBaseURL}}question"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Bot",
+			"item": [
+				{
+					"name": "BotQuestion - Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AuthenticationToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"question\": \"Esta es una pregunta\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ApiRestBaseURL}}me/question",
+							"host": [
+								"{{ApiRestBaseURL}}me"
+							],
+							"path": [
+								"question"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "d1fe6228-9e8e-42ac-9921-7983c10d6cbd",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "db38da0f-8af4-4f05-b134-73896eeefbdc",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
