@@ -28,7 +28,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"name\": \"ASDASD\",\r\n    \"categories\": [\r\n        {\r\n            \"id\": \"1\"\r\n        }\r\n    ],\r\n    \"price\": \"10000\",\r\n    \"details\": \"test\",\r\n    \"photoURL\": \"test\",\r\n    \"type\": \"simple\"\r\n}",
+									"raw": "{\r\n    \"name\": \"ASDASD\",\r\n    \"categories\": {\r\n        \"id\": \"1\"\r\n    },\r\n    \"price\": \"10000\",\r\n    \"details\": \"test\",\r\n    \"photoURL\": \"test\",\r\n    \"type\": \"simple\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -61,7 +61,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"id\": 23,\r\n    \"name\": \"test\",\r\n    \"categories\": [\r\n        {\r\n            \"id\": \"3\"\r\n        }\r\n    ],\r\n    \"price\": \"10000\",\r\n    \"details\": \"test\",\r\n    \"photoURL\": \"test\",\r\n    \"type\": \"simple\"\r\n}",
+									"raw": "{\r\n    \"id\": 23,\r\n    \"name\": \"test\",\r\n    \"categories\": {\r\n        \"id\": \"1\"\r\n    },\r\n    \"price\": \"10000\",\r\n    \"details\": \"test\",\r\n    \"photoURL\": \"test\",\r\n    \"type\": \"simple\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1185,9 +1185,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{ApiRestBaseURL}}bot/question",
+							"raw": "{{ApiRestBaseURL}}me/question",
 							"host": [
-								"{{ApiRestBaseURL}}bot"
+								"{{ApiRestBaseURL}}me"
 							],
 							"path": [
 								"question"
@@ -1213,7 +1213,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"answer\": \"Esta es una pregunta\"\r\n}",
+							"raw": "{\r\n    \"answer\": \"Esta es una respuesta\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1221,13 +1221,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{ApiRestBaseURL}}me/questions/3/answer",
+							"raw": "{{ApiRestBaseURL}}me/questions/4/answer",
 							"host": [
 								"{{ApiRestBaseURL}}me"
 							],
 							"path": [
 								"questions",
-								"3",
+								"4",
 								"answer"
 							]
 						}
@@ -1340,9 +1340,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{ApiRestBaseURL}}me/question",
+							"raw": "{{ApiRestBaseURL}}bot/question",
 							"host": [
-								"{{ApiRestBaseURL}}me"
+								"{{ApiRestBaseURL}}bot"
 							],
 							"path": [
 								"question"
