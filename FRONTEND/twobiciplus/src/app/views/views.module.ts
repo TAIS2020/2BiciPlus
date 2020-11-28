@@ -22,7 +22,6 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthService } from '../services/auth.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { CartComponent } from './cart/cart.component';
 
 
 @NgModule({
@@ -55,7 +54,6 @@ import { CartComponent } from './cart/cart.component';
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
-    CartComponent,
 
   ],
   exports: [

@@ -17,16 +17,13 @@
 				<feature name="Confiabilidad"/>
 				<feature name="Usabilidad"/>
 				<feature name="Desempeño"/>
-				<feature name="Elasticidad"/>
 			</and>
 			<and mandatory="true" name="Datos">
 				<graphics key="collapsed" value="false"/>
-				<and mandatory="true" name="Estructura">
-					<feature mandatory="true" name="String"/>
-					<feature name="Int"/>
-					<feature mandatory="true" name="Float"/>
-					<feature name="Date"/>
-				</and>
+				<feature name="String"/>
+				<feature name="Int"/>
+				<feature name="Date"/>
+				<feature name="Float"/>
 			</and>
 			<alt mandatory="true" name="FlujoControl">
 				<graphics key="collapsed" value="false"/>
@@ -37,33 +34,27 @@
 			</alt>
 			<and mandatory="true" name="Tecnología">
 				<graphics key="collapsed" value="false"/>
-				<alt mandatory="true" name="Servicios">
+				<and mandatory="true" name="Servicios">
 					<graphics key="collapsed" value="false"/>
 					<feature name="Cloud"/>
 					<feature name="Local"/>
-				</alt>
+				</and>
 				<and mandatory="true" name="Base de Datos">
 					<graphics key="collapsed" value="false"/>
-					<feature mandatory="true" name="MySql"/>
+					<feature name="MySql"/>
 					<feature name="Oracle"/>
-					<feature mandatory="true" name="PostgreSQL"/>
+					<feature name="PostgreSQL"/>
 					<feature name="Microsoft SQL Server"/>
 				</and>
-				<alt mandatory="true" name="Frontend">
+				<and mandatory="true" name="Frontend">
 					<graphics key="collapsed" value="false"/>
 					<feature name="NodeJS"/>
 					<feature name="NGINX"/>
-				</alt>
-				<alt mandatory="true" name="Backend">
+				</and>
+				<and mandatory="true" name="Backend">
 					<graphics key="collapsed" value="false"/>
 					<feature name="Tomcat"/>
 					<feature name="Spring"/>
-				</alt>
-				<and mandatory="true" name="Sistema Operativo">
-					<feature mandatory="true" name="Windows"/>
-					<feature name="Linux"/>
-					<feature mandatory="true" name="IOS"/>
-					<feature mandatory="true" name="Android"/>
 				</and>
 			</and>
 			<and mandatory="true" name="Función">
@@ -83,21 +74,14 @@
 					<graphics key="collapsed" value="false"/>
 					<feature mandatory="true" name="LogIn"/>
 					<feature mandatory="true" name="LogOut"/>
-					<and name="Actualizar Perfil">
+					<alt mandatory="true" name="Actualizar Perfil">
 						<graphics key="collapsed" value="false"/>
 						<feature name="Contraseña"/>
 						<feature name="Dirección"/>
-						<and name="Teléfono">
-							<feature name="Celular"/>
-							<feature mandatory="true" name="Fijo"/>
-						</and>
-						<and name="Correo">
-							<feature mandatory="true" name="Gmail"/>
-							<feature name="Outlook"/>
-						</and>
-					</and>
+						<feature name="Teléfono"/>
+					</alt>
 				</and>
-				<alt mandatory="true" name="Payment">
+				<and mandatory="true" name="Payment">
 					<graphics key="collapsed" value="false"/>
 					<alt name="Tarjeta">
 						<graphics key="collapsed" value="false"/>
@@ -105,18 +89,11 @@
 						<feature name="Crédito"/>
 					</alt>
 					<feature name="Efectivo"/>
-					<feature name="Consignación Bancaria"/>
-				</alt>
+				</and>
 				<and mandatory="true" name="ECcommerce">
 					<graphics key="collapsed" value="false"/>
 					<feature mandatory="true" name="SimpleECommerce"/>
 					<feature name="ComposedECommerce"/>
-				</and>
-				<and mandatory="true" name="Entorno">
-					<alt name="Middleware">
-						<feature name="Java"/>
-						<feature name="C++"/>
-					</alt>
 				</and>
 			</and>
 		</and>
@@ -154,104 +131,6 @@
 			<imp>
 				<var>MessageBasedCustomerSupport</var>
 				<var>UserAccount</var>
-			</imp>
-		</rule>
-		<rule>
-			<imp>
-				<var>Elasticidad</var>
-				<not>
-					<var>Seguridad</var>
-				</not>
-			</imp>
-		</rule>
-		<rule>
-			<imp>
-				<var>Seguridad</var>
-				<not>
-					<var>Elasticidad</var>
-				</not>
-			</imp>
-		</rule>
-		<rule>
-			<imp>
-				<var>Gmail</var>
-				<not>
-					<var>Outlook</var>
-				</not>
-			</imp>
-		</rule>
-		<rule>
-			<imp>
-				<var>Outlook</var>
-				<not>
-					<var>Gmail</var>
-				</not>
-			</imp>
-		</rule>
-		<rule>
-			<imp>
-				<var>Microsoft SQL Server</var>
-				<var>Windows</var>
-			</imp>
-		</rule>
-		<rule>
-			<imp>
-				<var>Backend</var>
-				<var>Frontend</var>
-			</imp>
-		</rule>
-		<rule>
-			<imp>
-				<var>Celular</var>
-				<not>
-					<var>Fijo</var>
-				</not>
-			</imp>
-		</rule>
-		<rule>
-			<imp>
-				<var>MySql</var>
-				<not>
-					<var>Oracle</var>
-				</not>
-			</imp>
-		</rule>
-		<rule>
-			<imp>
-				<var>Débito</var>
-				<not>
-					<var>Crédito</var>
-				</not>
-			</imp>
-		</rule>
-		<rule>
-			<imp>
-				<var>Crédito</var>
-				<not>
-					<var>Débito</var>
-				</not>
-			</imp>
-		</rule>
-		<rule>
-			<imp>
-				<var>Float</var>
-				<var>Int</var>
-			</imp>
-		</rule>
-		<rule>
-			<imp>
-				<var>Desempeño</var>
-				<not>
-					<var>Usabilidad</var>
-				</not>
-			</imp>
-		</rule>
-		<rule>
-			<imp>
-				<var>Confiabilidad</var>
-				<not>
-					<var>Desempeño</var>
-				</not>
 			</imp>
 		</rule>
 	</constraints>

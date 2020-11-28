@@ -55,7 +55,7 @@ export class Profile1Component implements OnInit {
       description: 'Image 9'
     }
 ];
-person: any;
+  person: any;
   constructor(private auth: AuthService) { }
 
   ngOnInit() {

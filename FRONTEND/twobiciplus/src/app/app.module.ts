@@ -22,18 +22,9 @@ import { NavigationModule } from './main-layout/navigation/navigation.module';
 import { AuthService } from './services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
-import { LoginComponent } from './views/login/login.component';
-import { RegisterComponent } from './views/register/register.component';
-import { Profile1Component } from './views/profile/profile1/profile1.component';
-import { CartComponent } from './views/cart/cart.component';
 
 const routes: Route[] = [
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'registro', component: RegisterComponent },
-  { path: 'perfil', component: Profile1Component },
-  { path: 'carrito', component: CartComponent },
-
 ];
 
 @NgModule({
