@@ -12,11 +12,11 @@ import com.biciplus.backend.model.config.Configuration;
 
 @Component
 public class SplConfigurationComponent {
-	private static String CONFIG_FILE_PATH = "C:\\Eclipse\\Workspaces\\eclipse-jee-2020-06-R\\2BiciPlus\\configs\\default.xml";
+	private static String CONFIG_FILE_PATH = "src/main/resources/default.xml";
 	private static Configuration configuration = null;	
 	
 	public Configuration getConfiguration() {
-		//if(configuration != null) return configuration;
+		if(configuration != null) return configuration;
 		
 		try {			
 			JAXBContext jaxbContext = JAXBContext.newInstance(Configuration.class);
