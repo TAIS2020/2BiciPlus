@@ -14,6 +14,6 @@
 	<feature automatic="selected" name="SimpleECommerce"/>
 	<feature manual="selected" name="ComposedECommerce"/>
 	<feature name="Reports"/>
-	<feature name="SimpleReport"/>
+	<feature name="SimpleReport" manual="selected"/>
 	<feature name="ComposedReport"/>
 </configuration>
