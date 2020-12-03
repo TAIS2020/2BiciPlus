@@ -1,24 +1,38 @@
 package com.biciplus.backend.model;
 
 public class SimpleReport extends Report {
-	private String test;
-	private String test2;
+	private String id;
+	private String name;
+	private String price;
 
-	public String getTest() {
-		return test;
+
+	public String getId() {
+		return id;
 	}
 
-	public void setTest(String test) {
-		this.test = test;
+	public void setId(String id) {
+		this.id = id;
 	}
 
-	public String getTest2() {
-		return test2;
+	public String getName() {
+		return name;
 	}
 
-	public void setTest2(String test2) {
-		this.test2 = test2;
+	public void setName(String name) {
+		this.name = name;
 	}
+
+	public String getPrice() {
+		return price;
+	}	
+	
+	public void setPrice(String price) {
+		this.price = price;
+		
+	}
+	
+
+	
 	
 	
 }
