@@ -33,6 +33,25 @@
                 </mdb-carousel-item>
             </mdb-carousel>
         </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3" *ngFor="let product of products" style="margin-bottom: 20px;">
+                    <mdb-card class="">
+                        <!--Card image-->
+                        <mdb-card-img [src]="product.photoURL" style="width: 40%;"></mdb-card-img>
+                        <!--Card content-->
+                        <mdb-card-body>
+                            <!--Title-->
+                            <mdb-card-title>
+                                <h4>{{product.name}}</h4>
+                            </mdb-card-title>
+                            <mdb-card-text>{{product.details}} - ${{product.price}}</mdb-card-text>
+                            <a (click)="addCart(product)" mdbBtn color="primary" mdbWavesEffect>Añadir al carrito</a>
+                        </mdb-card-body>
+                    </mdb-card>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div [hidden]="item == 2 ? '' : 'hidden'">
@@ -59,6 +78,12 @@
         <br>
         <br>
         <app-chat-seller (onChatSeller)="onChatSeller($event)" #chatSeller></app-chat-seller>
+    </div>
+    <div [hidden]="item == 6 ? '' : 'hidden'">
+        <br>
+        <br>
+        <br>
+        <app-complex-products></app-complex-products>
     </div>
     
 
