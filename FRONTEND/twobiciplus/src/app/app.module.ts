@@ -18,7 +18,7 @@ import { NotFoundComponent } from './views/errors/not-found/not-found.component'
 import { Dashboard1Component } from './views/dashboards/dashboard1/dashboard1.component'; */
 
 // main layout
-import { NavigationModule } from './main-layout/navigation/navigation.module';
+
 import { AuthService } from './services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
@@ -37,7 +37,6 @@ const routes: Route[] = [
     }),
     BrowserModule,
     BrowserAnimationsModule,
-    NavigationModule,
     RouterModule.forRoot(routes),
     FormsModule,
     SharedModule,

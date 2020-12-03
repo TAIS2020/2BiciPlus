@@ -22,6 +22,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthService } from '../services/auth.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { NavigationComponent } from '../main-layout/navigation/navigation.component';
 
 
 @NgModule({
@@ -54,7 +55,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
-
+    NavigationComponent
   ],
   exports: [
     FooterComponent,

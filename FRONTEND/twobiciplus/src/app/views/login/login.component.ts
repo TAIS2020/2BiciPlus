@@ -1,6 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { ServerResponse } from 'src/app/interfaces/server-response';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -23,9 +22,9 @@ export class LoginComponent implements OnInit {
       data => {
         console.log(data);
         if (true /* here goes the validation*/) {
-          const result = data as ServerResponse;
-          this.loginService.setPropertieCookie('token', result.token!);
-          this.loginService.setPropertieCookie('username', result.userName!);
+          console.log(data)
+          localStorage.setItem('token', data);
+          localStorage.setItem('username', user.email);
           this.logIn.emit('success');
           this.route.navigate(['/dashboard']);
         }

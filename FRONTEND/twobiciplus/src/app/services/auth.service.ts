@@ -21,7 +21,7 @@ export class AuthService {
       .set('password', user.password);
     */
     const formData = new FormData();
-    formData.append('username', user.username);
+    formData.append('username', user.email);
     formData.append('password', user.password);
     return this.http.post(this.url,  formData,
     {responseType: 'text',
