@@ -20,9 +20,7 @@ export class LoginComponent implements OnInit {
     const user = { email: this.email, password: this.password };
     this.loginService.login(user).subscribe(
       data => {
-        console.log(data);
-        if (true /* here goes the validation*/) {
-          console.log(data)
+        if (data !== 'no token found') {
           localStorage.setItem('token', data);
           localStorage.setItem('username', user.email);
           this.logIn.emit('success');
@@ -30,6 +28,7 @@ export class LoginComponent implements OnInit {
         }
       },
       error => {
+        alert('Usuario y contrasena invalidos')
         console.log(error);
       });
   }
@@ -37,4 +36,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  logout() {
+    localStorage.setItem('token', '');
+  }
 }

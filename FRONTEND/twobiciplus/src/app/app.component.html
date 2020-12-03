@@ -23,6 +23,6 @@
   <app-register [hidden]="home ? 'hidden' : ''"></app-register>
 </div>
 <div [hidden]="successLogin ? '' : 'hidden'">
-  <router-outlet></router-outlet>
+  <router-outlet #routes></router-outlet>
 </div>
 <app-footer></app-footer>

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
 
 
 @Component({
@@ -8,6 +8,8 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
   @ViewChild('sidenav', {static: true}) sidenav: ElementRef;
+
+  @Output() productsRoute: EventEmitter<string> = new EventEmitter();
 
   clicked: boolean;
 
@@ -20,6 +22,10 @@ export class NavigationComponent implements OnInit {
 
   setClicked(val: boolean): void {
     this.clicked = val;
+  }
+
+  products() {
+    this.productsRoute.emit('pr');
   }
 
 }

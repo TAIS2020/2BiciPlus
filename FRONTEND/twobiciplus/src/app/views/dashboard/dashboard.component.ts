@@ -23,7 +23,7 @@ export class DashboardComponent implements OnInit {
 
   cartArticles = 0;
   item = 1;
-  navTittle = 'Productos Destacados';
+  navTittle = 'Productos';
 
   constructor(private productService: ProductServiceService,
               private spService: ShoppingCartServiceService) {
@@ -32,8 +32,18 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.productService.getProducts(localStorage.getItem('token')).subscribe((data) => {
       console.log(data);
-      this.products = (data as ServerResponse).result ;
+      this.products = (data as ServerResponse).result;
     });
+    this.spService.getCartProducts(localStorage.getItem('token')).subscribe(
+      data => {
+        let cartItems = 0;
+        (data as any).result.products.forEach((it: { quantity: number; }) => {
+          cartItems += it.quantity;
+        });
+        localStorage.setItem('cart', cartItems + '');
+        this.cartArticles = +localStorage.getItem('cart')!;
+      }
+    );
   }
   addCart(product: any) {
     this.spService.addToCart(product, localStorage.getItem('token')).subscribe(

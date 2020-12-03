@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 
@@ -10,6 +10,10 @@ import { Location } from '@angular/common';
 })
 
 export class AppComponent implements OnInit {
+  @HostListener('window:unload', ['$event'])
+unloadHandler() {
+    localStorage.setItem('token', '');
+}
   values: string[] = ['Tag 1', 'Tag 2', 'Tag 4'];
   
 
