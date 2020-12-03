@@ -10,7 +10,7 @@
             </span>
         </h4>
     </div>
-    <div [hidden]="item == 1 ? '' : 'hidden'">
+    <div [hidden]="(item == 1 && !isSeller) ? '' : 'hidden'">
         <div class="container">
             <br>
             <br>
@@ -54,26 +54,26 @@
         </div>
     </div>
 
-    <div [hidden]="item == 2 ? '' : 'hidden'">
+    <div [hidden]="(item == 2 && !isSeller) ? '' : 'hidden'">
         <br>
         <br>
         <br>
         <app-carrito (onCart)="onCart($event)" #carrito></app-carrito>
     </div>
 
-    <div [hidden]="item == 3 ? '' : 'hidden'">
+    <div [hidden]="(item == 3 && !isSeller) ? '' : 'hidden'">
         <br>
         <br>
         <br>
         <app-perfil (onPerfil)="onPerfil($event)" #perfil></app-perfil>
     </div>
-    <div [hidden]="item == 4 ? '' : 'hidden'">
+    <div [hidden]="(item == 4 && !isSeller) ? '' : 'hidden'">
         <br>
         <br>
         <br>
         <app-chat-bot (onChatBot)="onChatBot($event)" #chatBot></app-chat-bot>
     </div>
-    <div [hidden]="item == 5 ? '' : 'hidden'">
+    <div [hidden]="(item == 5 && !isSeller) ? '' : 'hidden'">
         <br>
         <br>
         <br>
@@ -85,6 +85,19 @@
         <br>
         <app-complex-products></app-complex-products>
     </div>
-    
+    <div [hidden]="(item == 1 && isSeller) ? '' : 'hidden'">
+        <br>
+        <br>
+        <br>
+        <app-chat-seller (onChatCustomer)="onChatCustomer($event)" #chatSeller></app-chat-seller>
+    </div>
+    <div [hidden]="(item == 2 && isSeller) ? '' : 'hidden'">
+        <br>
+        <br>
+        <br>
+        <app-products-crud #crud></app-products-crud>
+    </div>
+
+
 
 </main>

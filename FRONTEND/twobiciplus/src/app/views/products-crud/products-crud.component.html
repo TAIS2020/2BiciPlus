@@ -1,0 +1,56 @@
+<div class="container">
+    <div [hidden]="type == 1 ? '' : 'hidden'">
+        <form class="custom-form">
+            <h1>CREAR PRODUCTO</h1>
+            <input type="text" [(ngModel)]="name" name="name" placeholder="Nombre" required="required" />
+            <input type="number" [(ngModel)]="price" name="precio" placeholder="Precio" required="required" />
+            <input type="text" [(ngModel)]="details" name="details" placeholder="Detalle" required="required" />
+            <input type="text" [(ngModel)]="photoURL" name="photoURL" placeholder="Link Foto" required="required" />
+            <button type="submit" (click)="crear()">Crear</button>
+          </form>
+    </div>
+    <div [hidden]="type == 2 ? '' : 'hidden'">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3" *ngFor="let product of products" style="margin-bottom: 20px;">
+                    <mdb-card class="">
+                        <!--Card image-->
+                        <mdb-card-img [src]="product.photoURL" style="width: 40%;"></mdb-card-img>
+                        <!--Card content-->
+                        <mdb-card-body>
+                            <!--Title-->
+                            <mdb-card-title>
+                                <h4>{{product.name}}</h4>
+                            </mdb-card-title>
+                            <mdb-card-text>{{product.details}} - ${{product.price}}</mdb-card-text>
+                        </mdb-card-body>
+                    </mdb-card>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div [hidden]="type == 3 ? '' : 'hidden'">
+
+    </div>
+    <div [hidden]="type == 4 ? '' : 'hidden'">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3" *ngFor="let product of products" style="margin-bottom: 20px;">
+                    <mdb-card class="">
+                        <!--Card image-->
+                        <mdb-card-img [src]="product.photoURL" style="width: 40%;"></mdb-card-img>
+                        <!--Card content-->
+                        <mdb-card-body>
+                            <!--Title-->
+                            <mdb-card-title>
+                                <h4>{{product.name}}</h4>
+                            </mdb-card-title>
+                            <mdb-card-text>{{product.details}} - ${{product.price}}</mdb-card-text>
+                            <a (click)="delete(product)" mdbBtn color="primary" mdbWavesEffect>ELIMINAR</a>
+                        </mdb-card-body>
+                    </mdb-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

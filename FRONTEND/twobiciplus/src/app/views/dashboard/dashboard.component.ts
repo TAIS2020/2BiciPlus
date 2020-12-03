@@ -1,13 +1,15 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+// import { Router } from '@angular/router';
 import { ServerResponse } from 'src/app/interfaces/server-response';
 import { ProductServiceService } from 'src/app/services/product-service.service';
 import { ShoppingCartServiceService } from 'src/app/services/shopping-cart-service.service';
 import { CarritoComponent } from '../carrito/carrito.component';
 import { ChatBotComponent } from '../chat-bot/chat-bot.component';
+import { ChatCustomerComponent } from '../chat-customer/chat-customer.component';
 import { ChatSellerComponent } from '../chat-seller/chat-seller.component';
 import { LoginComponent } from '../login/login.component';
 import { PerfilComponent } from '../perfil/perfil.component';
+import { ProductsCRUDComponent } from '../products-crud/products-crud.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -29,6 +31,7 @@ export class DashboardComponent implements OnInit {
 
   cartArticles = 0;
   item = 1;
+  isSeller = false;
   navTittle = 'Productos';
 
   @ViewChild('carrito') carrito: CarritoComponent;
@@ -36,16 +39,20 @@ export class DashboardComponent implements OnInit {
   @ViewChild('login') login: LoginComponent;
   @ViewChild('chatBot') chatBot: ChatBotComponent;
   @ViewChild('chatSeller') chatSeller: ChatSellerComponent;
+  @ViewChild('chatCustomer') chatCustomer: ChatCustomerComponent;
+  @ViewChild('crud') crud: ProductsCRUDComponent;
 
   constructor(private productService: ProductServiceService,
-    private spService: ShoppingCartServiceService,
-    private route: Router) {
+    private spService: ShoppingCartServiceService
+    // ,  private route: Router
+  ) {
   }
 
   ngOnInit(): void {
+    this.isSeller = (localStorage.getItem('type') === 'seller');
     this.initOnDemand();
     setInterval(() => {
-      if (localStorage.getItem('dash') == '1') {
+      if (localStorage.getItem('dash') === '1') {
         this.initOnDemand();
         localStorage.setItem('dash', '0');
       }
@@ -54,6 +61,7 @@ export class DashboardComponent implements OnInit {
   }
 
   initOnDemand() {
+
     this.productService.getProducts(localStorage.getItem('token')).subscribe((data) => {
       console.log(data);
       this.products = (data as ServerResponse).result;
@@ -61,11 +69,13 @@ export class DashboardComponent implements OnInit {
     this.spService.getCartProducts(localStorage.getItem('token')).subscribe(
       data => {
         let cartItems = 0;
-        (data as any).result.products.forEach((it: { quantity: number; }) => {
-          cartItems += it.quantity;
-        });
-        localStorage.setItem('cart', cartItems + '');
-        this.cartArticles = +localStorage.getItem('cart')!;
+        if ((data as any).result) {
+          (data as any).result.products.forEach((it: { quantity: number; }) => {
+            cartItems += it.quantity;
+          });
+          localStorage.setItem('cart', cartItems + '');
+          this.cartArticles = +localStorage.getItem('cart')!;
+        }
       }
     );
   }
@@ -97,7 +107,7 @@ export class DashboardComponent implements OnInit {
   onCart(event: any) {
     switch (event) {
       case 'empty':
-        this.cartArticles = 0;;
+        this.cartArticles = 0;
         break;
     }
   }
@@ -128,8 +138,27 @@ export class DashboardComponent implements OnInit {
         this.navTittle = 'Chat Vendedor';
         this.chatSeller.initOnDemand();
         break;
-      case 'lg':
-        // this.route.navigate(['/']);
+      // _________________________ Seller __________________________
+
+      case 'cos':
+        this.item = 1;
+        this.navTittle = 'Chats';
+        this.chatCustomer.initOnDemand();
+        break;
+      case 'create':
+        this.item = 2;
+        this.navTittle = 'Prductos CREAR';
+        this.crud.initOnDemand('c');
+        break;
+      case 'delete':
+        this.item = 2;
+        this.navTittle = 'Productos ELIMINAR';
+        this.crud.initOnDemand('d');
+        break;
+      case 'showP':
+        this.item = 2;
+        this.navTittle = 'Productos MOSTAR';
+        this.crud.initOnDemand('r');
         break;
       default:
         break;
