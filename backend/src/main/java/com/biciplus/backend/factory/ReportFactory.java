@@ -34,24 +34,39 @@ public class ReportFactory {
 	}
 	
 	private SimpleReport createSimpleReport() {
-		SimpleReport simpleReport = new SimpleReport();
+		SimpleReport simpleReport = new SimpleReport();		
 		
-		Query q = entityManager.createNativeQuery( "SELECT id, name FROM product limit 1");
+		Query q = entityManager.createNativeQuery( "SELECT id, name, price FROM product where id="
+				+ " (SELECT MAX(id) FROM product WHERE details is not null)");
 		
 		@SuppressWarnings("unchecked")
 		List<Object[]> array = (List<Object[]>) q.getResultList();
 		
-		simpleReport.setTest(String.valueOf(((BigInteger)array.get(0)[0]).longValue()));
-		simpleReport.setTest2(String.valueOf(array.get(0)[1]));
+		simpleReport.setId(String.valueOf(((BigInteger)array.get(0)[0]).longValue()));
+		simpleReport.setName(String.valueOf(array.get(0)[1]));
+		simpleReport.setPrice(String.valueOf(((BigInteger)array.get(0)[2]).longValue()));
 		
 		return simpleReport;
 	}
 	
 	private ComposedReport createComposedReport() {
-		ComposedReport simpleReport = new ComposedReport();
+		ComposedReport composedReport = new ComposedReport();
 
-		// add query.
+		Query q = entityManager.createNativeQuery( "SELECT product.id, product.name, product.price, product.details, category.name as cname "
+				+ "FROM product,product_categories,category"
+				+ " WHERE product.id=product_categories.product_id"
+				+ "	AND category.id=product_categories.categories_id"
+				+ " AND product.id = (SELECT MAX(id) FROM product WHERE dtype <>'ComposedProduct')");
 		
-		return simpleReport;
+		@SuppressWarnings("unchecked")
+		List<Object[]> array = (List<Object[]>) q.getResultList();
+		
+		composedReport.setId(String.valueOf(((BigInteger)array.get(0)[0]).longValue()));
+		composedReport.setName(String.valueOf(array.get(0)[1]));
+		composedReport.setPrice(String.valueOf(((BigInteger)array.get(0)[2]).longValue()));
+		composedReport.setDetails(String.valueOf(array.get(0)[3]));
+		composedReport.setCname(String.valueOf(array.get(0)[4]));
+		
+		return composedReport;
 	}
 }
