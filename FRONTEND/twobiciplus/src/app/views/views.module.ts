@@ -24,6 +24,7 @@ import { AuthService } from '../services/auth.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavigationComponent } from '../main-layout/navigation/navigation.component';
 import { CarritoComponent } from './carrito/carrito.component';
+import { PerfilComponent } from './perfil/perfil.component';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { CarritoComponent } from './carrito/carrito.component';
     RegisterComponent,
     DashboardComponent,
     NavigationComponent,
-    CarritoComponent
+    CarritoComponent,
+    PerfilComponent
   ],
   exports: [
     FooterComponent,
@@ -70,7 +72,8 @@ import { CarritoComponent } from './carrito/carrito.component';
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
-    CarritoComponent
+    CarritoComponent,
+    PerfilComponent
   ],
   schemas: [NO_ERRORS_SCHEMA]
 })

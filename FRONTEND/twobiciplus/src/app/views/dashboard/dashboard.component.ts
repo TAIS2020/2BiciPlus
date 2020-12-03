@@ -3,6 +3,7 @@ import { ServerResponse } from 'src/app/interfaces/server-response';
 import { ProductServiceService } from 'src/app/services/product-service.service';
 import { ShoppingCartServiceService } from 'src/app/services/shopping-cart-service.service';
 import { CarritoComponent } from '../carrito/carrito.component';
+import { PerfilComponent } from '../perfil/perfil.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -27,6 +28,7 @@ export class DashboardComponent implements OnInit {
   navTittle = 'Productos';
 
   @ViewChild('carrito') carrito: CarritoComponent;
+  @ViewChild('perfil') perfil: PerfilComponent;
 
   constructor(private productService: ProductServiceService,
     private spService: ShoppingCartServiceService) {
@@ -85,7 +87,7 @@ export class DashboardComponent implements OnInit {
   }
 
   onCart(event: any) {
-    switch(event) {
+    switch (event) {
       case 'empty':
         this.cartArticles = 0;;
         break;
@@ -102,6 +104,12 @@ export class DashboardComponent implements OnInit {
         this.item = 2;
         this.navTittle = 'Carrito';
         this.carrito.initOnDemand();
+        break;
+      case 'perfil':
+        this.item = 3;
+        this.navTittle = 'Perfil';
+        this.perfil.initOnDemand();
+        break;
       default:
         break;
     }

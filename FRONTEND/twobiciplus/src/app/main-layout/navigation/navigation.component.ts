@@ -32,4 +32,8 @@ export class NavigationComponent implements OnInit {
     this.onSidenav.emit('cart');
   }
 
+  perfil() {
+    this.onSidenav.emit('perfil');
+  }
+
 }

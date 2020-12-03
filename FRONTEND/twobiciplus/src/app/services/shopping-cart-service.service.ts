@@ -33,4 +33,10 @@ export class ShoppingCartServiceService {
     const headers = new HttpHeaders().set('Authorization', tok );
     return this.http.post(this.url + '/order', {headers: headers});
   }
+
+  getHistory(token: any) {
+    const tok = 'Bearer ' + token;
+    const headers = new HttpHeaders().set('Authorization', tok );
+    return this.http.get('api/me', {headers: headers});
+  }
 }

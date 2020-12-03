@@ -31,7 +31,8 @@ export class AuthService {
   }
 
   register(user: any): Observable<any> {
-    return this.http.post(this.url + 'register', user);
+    const headers = new HttpHeaders().set('Authorization', `Bearer 123`);
+    return this.http.post(this.urlA + 'person', user, {headers: headers});
   }
 
   setPropertieCookie(propName: string, value: string): void {

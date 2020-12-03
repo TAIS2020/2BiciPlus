@@ -41,4 +41,11 @@
         <br>
         <app-carrito (onCart)="onCart($event)" #carrito></app-carrito>
     </div>
+
+    <div [hidden]="item == 3 ? '' : 'hidden'">
+        <br>
+        <br>
+        <br>
+        <app-perfil (onPerfil)="onPerfil($event)" #perfil></app-perfil>
+    </div>
 </main>

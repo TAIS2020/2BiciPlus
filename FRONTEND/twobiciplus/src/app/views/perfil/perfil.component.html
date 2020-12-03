@@ -1,0 +1,60 @@
+<div class="">
+    <mdb-card style="width: 45%; margin-right: auto; margin-left: auto;">
+        <!--Card image-->
+        <mdb-card-img
+            src="https://assets.entrepreneur.com/content/3x2/2000/20160419164404-Depositphotos-32428429-l-2015.jpeg"
+            alt="Card image cap"></mdb-card-img>
+        <!--Card content-->
+        <mdb-card-body>
+
+            <!--Title-->
+            <mdb-card-title>
+                <h4>{{user.login}}</h4>
+            </mdb-card-title>
+
+            <!--Text-->
+            <mdb-card-text>Dirección: {{user.address}} Celular: {{user.cellNumber}}
+            </mdb-card-text>
+
+            <a mdbBtn color="primary" mdbWavesEffect>Cambiar Contraseña</a>
+        </mdb-card-body>
+    </mdb-card>
+    <br>
+    <table class="table">
+        <thead class="black white-text">
+            <tr>
+                <th scope="col">Fecha de pago</th>
+                <th scope="col">Productos</th>
+                <th scope="col">Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let order of user.orderHistory">
+                <td>{{order.paymentDate}}</td>
+                <td>
+
+                    <table class="table">
+                        <thead class="black white-text">
+                            <tr>
+                                <th scope="col">Foto</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Cantidad</th>
+                                <th scope="col">Precio Unitario</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let product of order.shoppingCart.products">
+                                <th><img style="width: 10%;" [src]="product.product.photoURL" alt=""></th>
+                                <td>{{product.product.name}}</td>
+                                <td>{{product.quantity}}</td>
+                                <td>$ {{product.product.price}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </td>
+                <td>$ {{order.shoppingCart.totalPrice}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
