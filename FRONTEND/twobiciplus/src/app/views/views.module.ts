@@ -27,6 +27,7 @@ import { CarritoComponent } from './carrito/carrito.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { ChatBotComponent } from './chat-bot/chat-bot.component';
 import { ChatSellerComponent } from './chat-seller/chat-seller.component';
+import { ComplexProductsComponent } from './complex-products/complex-products.component';
 
 
 @NgModule({
@@ -63,7 +64,8 @@ import { ChatSellerComponent } from './chat-seller/chat-seller.component';
     CarritoComponent,
     PerfilComponent,
     ChatBotComponent,
-    ChatSellerComponent
+    ChatSellerComponent,
+    ComplexProductsComponent
   ],
   exports: [
     FooterComponent,
@@ -77,7 +79,8 @@ import { ChatSellerComponent } from './chat-seller/chat-seller.component';
     RegisterComponent,
     DashboardComponent,
     CarritoComponent,
-    PerfilComponent
+    PerfilComponent,
+    ComplexProductsComponent
   ],
   schemas: [NO_ERRORS_SCHEMA]
 })

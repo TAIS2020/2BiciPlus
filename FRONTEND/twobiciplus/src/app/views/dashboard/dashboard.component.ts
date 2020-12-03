@@ -129,7 +129,7 @@ export class DashboardComponent implements OnInit {
         this.chatSeller.initOnDemand();
         break;
       case 'lg':
-        this.route.navigate(['/']);
+        // this.route.navigate(['/']);
         break;
       default:
         break;

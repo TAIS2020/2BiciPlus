@@ -38,6 +38,8 @@ export class NavigationComponent implements OnInit {
 
   logout() {
     this.onSidenav.emit('lg');
+    localStorage.setItem('token', '');
+    location.reload();
   }
 
   chatBot() {
@@ -54,5 +56,9 @@ export class NavigationComponent implements OnInit {
 
   about() {
     this.onSidenav.emit('ab');
+  }
+
+  complex() {
+    this.onSidenav.emit('complex');
   }
 }
