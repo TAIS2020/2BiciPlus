@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.biciplus.backend.controllers.util.Response;
 import com.biciplus.backend.repositories.QuestionRepository;
 
-@RestController
+//@RestController
 @RequestMapping("api/question")
 public class QuestionController {
 

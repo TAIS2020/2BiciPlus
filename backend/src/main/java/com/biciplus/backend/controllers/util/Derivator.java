@@ -29,14 +29,14 @@ public class Derivator {
 	public void configureComposedProductsFeature(boolean enable) {
 		if(enable) {
 			System.out.println("Enabling Composed Products Feature");
-			replaceFileContent("src/main/java/com/biciplus/backend/aspects/ComposedProductVariabilityHelper.java", "[\\/]*@Component", "@Component");
-			replaceFileContent("src/main/java/com/biciplus/backend/aspects/InventoryVariabilityAspect.java", "[\\/]*@Component", "@Component");
-			replaceFileContent("src/main/java/com/biciplus/backend/aspects/ProductVariabilityAspect.java", "[\\/]*@Component", "@Component");
-		} else {
-			System.out.println("Disabling Composed Products Feature");
 			replaceFileContent("src/main/java/com/biciplus/backend/aspects/ComposedProductVariabilityHelper.java", "[\\\\/]*@Component", "//@Component");
 			replaceFileContent("src/main/java/com/biciplus/backend/aspects/InventoryVariabilityAspect.java", "[\\\\/]*@Component", "//@Component");
 			replaceFileContent("src/main/java/com/biciplus/backend/aspects/ProductVariabilityAspect.java", "[\\\\/]*@Component", "//@Component");
+		} else {
+			System.out.println("Disabling Composed Products Feature");
+			replaceFileContent("src/main/java/com/biciplus/backend/aspects/ComposedProductVariabilityHelper.java", "[\\/]*@Component", "@Component");
+			replaceFileContent("src/main/java/com/biciplus/backend/aspects/InventoryVariabilityAspect.java", "[\\/]*@Component", "@Component");
+			replaceFileContent("src/main/java/com/biciplus/backend/aspects/ProductVariabilityAspect.java", "[\\/]*@Component", "@Component");
 		}
 	}
 	

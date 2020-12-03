@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.biciplus.backend.CustomExceptionHandler;
+import com.biciplus.backend.components.SplConfigurationComponent;
 import com.biciplus.backend.controllers.util.Response;
+import com.biciplus.backend.exceptions.FeatureDisabledException;
 import com.biciplus.backend.model.Customer;
 import com.biciplus.backend.model.OrderHistory;
 import com.biciplus.backend.model.Person;
@@ -47,6 +49,8 @@ public class MeController<T extends Person, Y extends Product> extends CustomExc
 	QuestionRepository questionRepository;
 	@Autowired
 	AuthenticationService<T> authenticationService;
+	@Autowired 
+	SplConfigurationComponent configuration;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public Response getMe(@RequestHeader (name="Authorization") String token) throws Exception {
@@ -170,6 +174,7 @@ public class MeController<T extends Person, Y extends Product> extends CustomExc
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/question", method = RequestMethod.POST)
 	public Response postQuestion(@RequestHeader (name="Authorization") String token, @RequestBody Question question) throws Exception {
+		if(!configuration.featureIsActive("MessageBasedCustomerSupport")) throw new FeatureDisabledException("Message based customer support is not enabled");
 		if(question.getQuestion() == null || question.getQuestion().isEmpty()) throw new Exception("Invalid question");
 		Customer customer = getCustomerFromToken(token);
 		question.setId(null);
@@ -184,6 +189,7 @@ public class MeController<T extends Person, Y extends Product> extends CustomExc
 
 	@RequestMapping(value = "/questions/{id}/answer", method = RequestMethod.POST)
 	public Response postQuestionAnswer(@RequestHeader (name="Authorization") String token, @PathVariable("id") Long id, @RequestBody Question question) throws Exception {
+		if(!configuration.featureIsActive("MessageBasedCustomerSupport")) throw new FeatureDisabledException("Message based customer support is not enabled");
 		if(question.getAnswer() == null || question.getAnswer().isEmpty()) throw new Exception("Invalid answer");
 		String answer = question.getAnswer();
 		question = questionRepository.findEntityById(id);
