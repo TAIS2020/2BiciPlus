@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="box">
+        <table class="table">
+            <thead class="black white-text">
+                <tr>
+                    <th scope="col">Foto</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Precio Unitario</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of products">
+                    <th><img style="width: 10%;" [src]="product.product.photoURL" alt=""></th>
+                    <td>{{product.product.name}}</td>
+                    <td>{{product.quantity}}</td>
+                    <td>$ {{product.product.price}}</td>
+                </tr>
+            </tbody>
+            <p *ngIf="products.length === 0">No hay elementos en el carrito</p>
+            <h6 style="font-weight: bolder;" *ngIf="products.length !== 0">TOTAL $ {{getTotal()}}</h6>
+        </table>
+    </div>
+    <div [hidden]="visibleButtons ? 'hidden' : ''">
+        <a (click)="emptyCart()" mdbBtn color="primary" mdbWavesEffect>Vaciar Carrito</a>
+        <a (click)="buy()" mdbBtn color="primary" mdbWavesEffect>Comprar</a>
+        <form>
+            <script
+              src="https://checkout.wompi.co/widget.js"
+              data-render="button"
+              data-public-key="pub_test_dOlcXJkEd5lx9JOvUhafAyAzklDMpgt7"
+              data-currency="COP"
+              data-amount-in-cents="4950000"
+              data-reference="4XMPGKWWPKWQ"
+              >
+            </script>
+          </form>
+    </div>
+
+</div>

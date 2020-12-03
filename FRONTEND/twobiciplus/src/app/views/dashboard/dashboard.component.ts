@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ServerResponse } from 'src/app/interfaces/server-response';
 import { ProductServiceService } from 'src/app/services/product-service.service';
 import { ShoppingCartServiceService } from 'src/app/services/shopping-cart-service.service';
+import { CarritoComponent } from '../carrito/carrito.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -25,11 +26,24 @@ export class DashboardComponent implements OnInit {
   item = 1;
   navTittle = 'Productos';
 
+  @ViewChild('carrito') carrito: CarritoComponent;
+
   constructor(private productService: ProductServiceService,
-              private spService: ShoppingCartServiceService) {
+    private spService: ShoppingCartServiceService) {
   }
 
   ngOnInit(): void {
+    this.initOnDemand();
+    setInterval(() => {
+      if (localStorage.getItem('dash') == '1') {
+        this.initOnDemand();
+        localStorage.setItem('dash', '0');
+      }
+    }, 1000);
+
+  }
+
+  initOnDemand() {
     this.productService.getProducts(localStorage.getItem('token')).subscribe((data) => {
       console.log(data);
       this.products = (data as ServerResponse).result;
@@ -45,6 +59,7 @@ export class DashboardComponent implements OnInit {
       }
     );
   }
+
   addCart(product: any) {
     this.spService.addToCart(product, localStorage.getItem('token')).subscribe(
       data => {
@@ -58,7 +73,7 @@ export class DashboardComponent implements OnInit {
       },
       error => {
         console.log(error);
-        
+
       }
     );
   }
@@ -66,5 +81,29 @@ export class DashboardComponent implements OnInit {
   showCart() {
     this.item = 2;
     this.navTittle = 'Carrito';
+    this.carrito.initOnDemand();
+  }
+
+  onCart(event: any) {
+    switch(event) {
+      case 'empty':
+        this.cartArticles = 0;;
+        break;
+    }
+  }
+
+  onSidenav(event: any) {
+    switch (event) {
+      case 'pr':
+        this.item = 1;
+        this.navTittle = 'Productos';
+        break;
+      case 'cart':
+        this.item = 2;
+        this.navTittle = 'Carrito';
+        this.carrito.initOnDemand();
+      default:
+        break;
+    }
   }
 }

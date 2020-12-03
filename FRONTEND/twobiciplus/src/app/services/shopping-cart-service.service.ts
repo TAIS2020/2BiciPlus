@@ -21,4 +21,16 @@ export class ShoppingCartServiceService {
     const headers = new HttpHeaders().set('Authorization', tok );
     return this.http.get(this.url, {headers: headers});
   }
+
+  emptyCart(token: any) {
+    const tok = 'Bearer ' + token;
+    const headers = new HttpHeaders().set('Authorization', tok );
+    return this.http.delete(this.url, {headers: headers});
+  }
+
+  createOrder(token: any) {
+    const tok = 'Bearer ' + token;
+    const headers = new HttpHeaders().set('Authorization', tok );
+    return this.http.post(this.url + '/order', {headers: headers});
+  }
 }

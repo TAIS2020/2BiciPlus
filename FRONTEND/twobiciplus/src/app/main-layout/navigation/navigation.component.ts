@@ -9,7 +9,7 @@ import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter } from '
 export class NavigationComponent implements OnInit {
   @ViewChild('sidenav', {static: true}) sidenav: ElementRef;
 
-  @Output() productsRoute: EventEmitter<string> = new EventEmitter();
+  @Output() onSidenav: EventEmitter<string> = new EventEmitter();
 
   clicked: boolean;
 
@@ -25,7 +25,11 @@ export class NavigationComponent implements OnInit {
   }
 
   products() {
-    this.productsRoute.emit('pr');
+    this.onSidenav.emit('pr');
+  }
+
+  cart() {
+    this.onSidenav.emit('cart');
   }
 
 }

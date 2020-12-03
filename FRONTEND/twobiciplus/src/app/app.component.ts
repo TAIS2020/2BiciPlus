@@ -11,11 +11,11 @@ import { Location } from '@angular/common';
 
 export class AppComponent implements OnInit {
   @HostListener('window:unload', ['$event'])
-unloadHandler() {
+  unloadHandler() {
     localStorage.setItem('token', '');
-}
+  }
   values: string[] = ['Tag 1', 'Tag 2', 'Tag 4'];
-  
+
 
   specialPage: boolean;
   home: boolean = true;
@@ -37,7 +37,7 @@ unloadHandler() {
     private location: Location
   ) {
 
-    this.router.events.subscribe((route:any) => {
+    this.router.events.subscribe((route: any) => {
       this.currentUrl = route.url;
 
       this.specialPage = this.specialPages.indexOf(this.currentUrl) !== -1;
@@ -63,6 +63,7 @@ unloadHandler() {
   logIn(event: any) {
     if (event == 'success') {
       this.successLogin = true;
+      localStorage.setItem('dash', '1');
     }
   }
 }

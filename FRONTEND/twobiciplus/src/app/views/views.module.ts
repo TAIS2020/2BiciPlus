@@ -23,6 +23,7 @@ import { RegisterComponent } from './register/register.component';
 import { AuthService } from '../services/auth.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavigationComponent } from '../main-layout/navigation/navigation.component';
+import { CarritoComponent } from './carrito/carrito.component';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { NavigationComponent } from '../main-layout/navigation/navigation.compon
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
-    NavigationComponent
+    NavigationComponent,
+    CarritoComponent
   ],
   exports: [
     FooterComponent,
@@ -67,7 +69,8 @@ import { NavigationComponent } from '../main-layout/navigation/navigation.compon
     Dashboard1Component,
     LoginComponent,
     RegisterComponent,
-    DashboardComponent
+    DashboardComponent,
+    CarritoComponent
   ],
   schemas: [NO_ERRORS_SCHEMA]
 })
