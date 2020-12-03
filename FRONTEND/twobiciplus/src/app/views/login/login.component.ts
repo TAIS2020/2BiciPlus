@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
                 const type = (dataUser as any).result.type;
                 localStorage.setItem('type', type);
                 this.logIn.emit('success');
+                console.log('tipe: ', localStorage.getItem('type'));
                 this.route.navigate(['/dashboard']);
               }
             }

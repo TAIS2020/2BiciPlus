@@ -9,7 +9,7 @@
         </a>
 
         <div class="list-group list-group-flush">
-            <a (click)="products()" class="list-group-item list-group-item-action waves-effect">
+            <a *ngIf="!isSeller" (click)="products()" class="list-group-item list-group-item-action waves-effect">
                 <mdb-icon fas icon="cube" class="mr-3"></mdb-icon>Productos
             </a>
 <!--
@@ -18,34 +18,40 @@
                 <mdb-icon fas icon="clipboard-list" class="mr-3"></mdb-icon>Productos
             </a>
         -->
-            <a (click)="perfil()" class="list-group-item list-group-item-action waves-effect">
+            <a *ngIf="!isSeller" (click)="perfil()" class="list-group-item list-group-item-action waves-effect">
                 <mdb-icon fas icon="user" class="mr-3"></mdb-icon>Perfil
             </a>
-            <a (click)="complex()"
+            <a *ngIf="!isSeller" (click)="complex()"
                 class="list-group-item list-group-item-action waves-effect">
                 <mdb-icon fas icon="bicycle" class="mr-3"></mdb-icon>Arma Tu Bici
             </a>
-            <a (click)="cart()" class="list-group-item list-group-item-action waves-effect">
+            <a *ngIf="!isSeller" (click)="cart()" class="list-group-item list-group-item-action waves-effect">
                 <mdb-icon fas icon="shopping-cart" class="mr-3"></mdb-icon>Carrito
             </a>
-            <a (click)="chatBot()" class="list-group-item list-group-item-action waves-effect">
+            <a *ngIf="!isSeller" (click)="chatBot()" class="list-group-item list-group-item-action waves-effect">
                 <mdb-icon fas icon="comment" class="mr-3"></mdb-icon>ChatBot
             </a>
-            <a (click)="chatSeller()" class="list-group-item list-group-item-action waves-effect">
+            <a *ngIf="!isSeller" (click)="chatSeller()" class="list-group-item list-group-item-action waves-effect">
                 <mdb-icon fas icon="comments" class="mr-3"></mdb-icon>Chat Vendedor
             </a>
-            <a (click)="report()" class="list-group-item list-group-item-action waves-effect">
+            <a *ngIf="!isSeller" (click)="report()" class="list-group-item list-group-item-action waves-effect">
                 <mdb-icon fas icon="scroll" class="mr-3"></mdb-icon>Reporte
             </a>
-            <a (click)="about()" class="list-group-item list-group-item-action waves-effect">
+            <a *ngIf="!isSeller" (click)="about()" class="list-group-item list-group-item-action waves-effect">
                 <mdb-icon fas icon="scroll" class="mr-3"></mdb-icon>Contactanos
             </a>
+            <!---------------------- Seller Sidebar ---------->
+
+            <a *ngIf="isSeller" (click)="chatOfSeller()" class="list-group-item list-group-item-action waves-effect">
+                <mdb-icon fas icon="comments" class="mr-3"></mdb-icon>Chats
+            </a>
+            
+            
+            <!---------------------- Common Sidebar ---------->
+
             <a (click)="logout()" class="list-group-item list-group-item-action waves-effect">
                 <mdb-icon fas icon="sign-out-alt" class="mr-3"></mdb-icon>Logout
             </a>
-            <!-- Seller Sidebar -->
-            
-
         </div>
 
 

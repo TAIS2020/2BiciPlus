@@ -28,6 +28,7 @@ import { PerfilComponent } from './perfil/perfil.component';
 import { ChatBotComponent } from './chat-bot/chat-bot.component';
 import { ChatSellerComponent } from './chat-seller/chat-seller.component';
 import { ComplexProductsComponent } from './complex-products/complex-products.component';
+import { ChatCustomerComponent } from './chat-customer/chat-customer.component';
 
 
 @NgModule({
@@ -65,7 +66,8 @@ import { ComplexProductsComponent } from './complex-products/complex-products.co
     PerfilComponent,
     ChatBotComponent,
     ChatSellerComponent,
-    ComplexProductsComponent
+    ComplexProductsComponent,
+    ChatCustomerComponent
   ],
   exports: [
     FooterComponent,
@@ -73,7 +75,7 @@ import { ComplexProductsComponent } from './complex-products/complex-products.co
     ModalsComponent,
     Map1Component,
     StatsCardComponent,
-    StatsCard2Component,    
+    StatsCard2Component,
     Dashboard1Component,
     LoginComponent,
     RegisterComponent,

@@ -12,12 +12,14 @@ export class NavigationComponent implements OnInit {
   @Output() onSidenav: EventEmitter<string> = new EventEmitter();
 
   clicked: boolean;
+  isSeller = false;
 
   constructor() {
     this.clicked = this.clicked === undefined ? false : true;
   }
 
   ngOnInit() {
+    this.isSeller = (localStorage.getItem('type') === 'seller');
   }
 
   setClicked(val: boolean): void {
@@ -61,4 +63,14 @@ export class NavigationComponent implements OnInit {
   complex() {
     this.onSidenav.emit('complex');
   }
+  chatCustomer() {
+    this.onSidenav.emit('cs');
+  }
+
+  // _________________________ Seller __________________________
+
+  chatOfSeller() {
+    this.onSidenav.emit('cos');
+  }
+
 }
