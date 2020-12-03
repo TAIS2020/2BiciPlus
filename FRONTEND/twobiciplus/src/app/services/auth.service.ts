@@ -44,8 +44,8 @@ export class AuthService {
   }
 
   getPerson() {
-    console.log('token people', this.token);
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
+    const tok = localStorage.getItem('token') ;
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${tok}`);
     return this.http.get(`${this.urlA}me`, {
       headers: headers
     });

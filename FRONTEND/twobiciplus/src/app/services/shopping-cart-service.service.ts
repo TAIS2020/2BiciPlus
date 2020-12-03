@@ -6,10 +6,10 @@ import { Injectable } from '@angular/core';
 })
 export class ShoppingCartServiceService {
 
-  url = 'api/me/shoppingCart'
+  url = 'api/me/shoppingCart';
 
   constructor(private http: HttpClient) { }
-  
+
   addToCart(product: any, token: any) {
     const tok = 'Bearer ' + token;
     const headers = new HttpHeaders().set('Authorization', tok );

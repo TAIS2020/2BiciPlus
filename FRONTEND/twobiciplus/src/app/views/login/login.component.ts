@@ -23,17 +23,26 @@ export class LoginComponent implements OnInit {
         if (data !== 'no token found') {
           localStorage.setItem('token', data);
           localStorage.setItem('username', user.email);
-          this.logIn.emit('success');
-          this.route.navigate(['/dashboard']);
+          this.loginService.getPerson().subscribe(
+            (dataUser: any) => {
+              if ((dataUser as any).status === 'OK') {
+                const type = (dataUser as any).result.type;
+                localStorage.setItem('type', type);
+                this.logIn.emit('success');
+                this.route.navigate(['/dashboard']);
+              }
+            }
+          );
         }
       },
       error => {
-        alert('Usuario y contrasena invalidos')
+        alert('Usuario y contrasena invalidos');
         console.log(error);
       });
   }
 
   ngOnInit(): void {
+    this.logout();
   }
 
   logout() {

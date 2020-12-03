@@ -36,4 +36,23 @@ export class NavigationComponent implements OnInit {
     this.onSidenav.emit('perfil');
   }
 
+  logout() {
+    this.onSidenav.emit('lg');
+  }
+
+  chatBot() {
+    this.onSidenav.emit('cb');
+  }
+
+  chatSeller() {
+    this.onSidenav.emit('cc');
+  }
+
+  report() {
+    this.onSidenav.emit('rep');
+  }
+
+  about() {
+    this.onSidenav.emit('ab');
+  }
 }

@@ -1,8 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { ServerResponse } from 'src/app/interfaces/server-response';
 import { ProductServiceService } from 'src/app/services/product-service.service';
 import { ShoppingCartServiceService } from 'src/app/services/shopping-cart-service.service';
 import { CarritoComponent } from '../carrito/carrito.component';
+import { ChatBotComponent } from '../chat-bot/chat-bot.component';
+import { ChatSellerComponent } from '../chat-seller/chat-seller.component';
+import { LoginComponent } from '../login/login.component';
 import { PerfilComponent } from '../perfil/perfil.component';
 
 @Component({
@@ -29,9 +33,13 @@ export class DashboardComponent implements OnInit {
 
   @ViewChild('carrito') carrito: CarritoComponent;
   @ViewChild('perfil') perfil: PerfilComponent;
+  @ViewChild('login') login: LoginComponent;
+  @ViewChild('chatBot') chatBot: ChatBotComponent;
+  @ViewChild('chatSeller') chatSeller: ChatSellerComponent;
 
   constructor(private productService: ProductServiceService,
-    private spService: ShoppingCartServiceService) {
+    private spService: ShoppingCartServiceService,
+    private route: Router) {
   }
 
   ngOnInit(): void {
@@ -109,6 +117,19 @@ export class DashboardComponent implements OnInit {
         this.item = 3;
         this.navTittle = 'Perfil';
         this.perfil.initOnDemand();
+        break;
+      case 'cb':
+        this.item = 4;
+        this.navTittle = 'Chat Bot';
+        this.chatBot.initOnDemand();
+        break;
+      case 'cc':
+        this.item = 5;
+        this.navTittle = 'Chat Vendedor';
+        this.chatSeller.initOnDemand();
+        break;
+      case 'lg':
+        this.route.navigate(['/']);
         break;
       default:
         break;

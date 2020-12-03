@@ -25,6 +25,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { NavigationComponent } from '../main-layout/navigation/navigation.component';
 import { CarritoComponent } from './carrito/carrito.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import { ChatBotComponent } from './chat-bot/chat-bot.component';
+import { ChatSellerComponent } from './chat-seller/chat-seller.component';
 
 
 @NgModule({
@@ -59,7 +61,9 @@ import { PerfilComponent } from './perfil/perfil.component';
     DashboardComponent,
     NavigationComponent,
     CarritoComponent,
-    PerfilComponent
+    PerfilComponent,
+    ChatBotComponent,
+    ChatSellerComponent
   ],
   exports: [
     FooterComponent,

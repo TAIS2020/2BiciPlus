@@ -24,12 +24,11 @@ export class CarritoComponent implements OnInit {
     this.sp.getCartProducts(localStorage.getItem('token')).subscribe(
       data => {
         if ((data as any).status === 'OK') {
-          this.products = (data as any).result.products
+          this.products = (data as any).result.products;
           this.visibleButtons = this.products.length === 0;
         }
       }
     );
-    
   }
 
   emptyCart() {

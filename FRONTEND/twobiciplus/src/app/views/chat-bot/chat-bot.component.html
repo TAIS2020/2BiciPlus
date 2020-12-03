@@ -1,0 +1,18 @@
+<h2>Chat Bot</h2>
+<div style="display: flex; flex-direction: column;">
+    <div *ngFor="let mensaje of mensajes">
+        <div *ngIf="mensaje.isFromCustomer" style="float:right">
+            {{mensaje.content}}
+        </div>
+        <div *ngIf="!mensaje.isFromCustomer" style="float:left">
+            {{mensaje.content}}
+        </div>
+    </div>
+    <div>
+        <input 
+        type="text" 
+        [(ngModel)]="mensaje"
+        >    
+        <button (click)="enviarMensaje()">Enviar</button>
+    </div>
+</div>
