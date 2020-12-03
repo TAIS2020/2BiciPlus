@@ -37,7 +37,7 @@ public class ReportFactory {
 		SimpleReport simpleReport = new SimpleReport();		
 		
 		Query q = entityManager.createNativeQuery( "SELECT id, name, price FROM product where id="
-				+ " (SELECT MAX(id) FROM product WHERE details is not null)");
+				+ " (SELECT MAX(id) FROM product WHERE dtype <>'ComposedProduct')");
 		
 		@SuppressWarnings("unchecked")
 		List<Object[]> array = (List<Object[]>) q.getResultList();
